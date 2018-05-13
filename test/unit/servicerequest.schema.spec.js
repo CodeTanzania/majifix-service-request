@@ -18,7 +18,8 @@ describe('ServiceRequest', function () {
     it('should have jurisdiction field', function () {
 
       const jurisdiction = ServiceRequest.schema.tree.jurisdiction;
-      const instance = ServiceRequest.schema.paths.jurisdiction.instance;
+      const instance =
+        ServiceRequest.schema.paths.jurisdiction.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(jurisdiction).to.exist;
@@ -55,7 +56,8 @@ describe('ServiceRequest', function () {
     it('should have service field', function () {
 
       const service = ServiceRequest.schema.tree.service;
-      const instance = ServiceRequest.schema.paths.service.instance;
+      const instance =
+        ServiceRequest.schema.paths.service.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(service).to.exist;
@@ -74,7 +76,8 @@ describe('ServiceRequest', function () {
     it('should have priority field', function () {
 
       const priority = ServiceRequest.schema.tree.priority;
-      const instance = ServiceRequest.schema.paths.priority.instance;
+      const instance =
+        ServiceRequest.schema.paths.priority.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(priority).to.exist;
@@ -134,7 +137,8 @@ describe('ServiceRequest', function () {
     it('should have description field', function () {
 
       const description = ServiceRequest.schema.tree.description;
-      const instance = ServiceRequest.schema.paths.description.instance;
+      const instance =
+        ServiceRequest.schema.paths.description.instance;
 
       expect(instance).to.be.equal('String');
       expect(description).to.exist;
