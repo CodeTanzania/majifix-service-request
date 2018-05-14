@@ -4,15 +4,15 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const ReporterSchema = require(path.join(__dirname, '..', '..', 'lib', 'duration.schema'));
+const DurationSchema = require(path.join(__dirname, '..', '..', 'lib', 'duration.schema'));
 
 describe('Duration', function () {
 
   describe('Schema', function () {
 
     it('should have years field', function () {
-      const years = ReporterSchema.tree.years;
-      const instance = ReporterSchema.paths.years.instance;
+      const years = DurationSchema.tree.years;
+      const instance = DurationSchema.paths.years.instance;
 
       expect(instance).to.be.equal('Number');
       expect(years).to.exist;
@@ -25,8 +25,8 @@ describe('Duration', function () {
 
     it('should have months field', function () {
 
-      const months = ReporterSchema.tree.months;
-      const instance = ReporterSchema.paths.months.instance;
+      const months = DurationSchema.tree.months;
+      const instance = DurationSchema.paths.months.instance;
 
       expect(instance).to.be.equal('Number');
       expect(months).to.exist;
@@ -37,8 +37,8 @@ describe('Duration', function () {
     });
 
     it('should have days field', function () {
-      const days = ReporterSchema.tree.days;
-      const instance = ReporterSchema.paths.days.instance;
+      const days = DurationSchema.tree.days;
+      const instance = DurationSchema.paths.days.instance;
 
       expect(instance).to.be.equal('Number');
       expect(days).to.exist;
@@ -49,8 +49,8 @@ describe('Duration', function () {
     });
 
     it('should have hours field', function () {
-      const hours = ReporterSchema.tree.hours;
-      const instance = ReporterSchema.paths.hours.instance;
+      const hours = DurationSchema.tree.hours;
+      const instance = DurationSchema.paths.hours.instance;
 
       expect(instance).to.be.equal('Number');
       expect(hours).to.exist;
@@ -61,8 +61,8 @@ describe('Duration', function () {
     });
 
     it('should have minutes field', function () {
-      const minutes = ReporterSchema.tree.minutes;
-      const instance = ReporterSchema.paths.minutes.instance;
+      const minutes = DurationSchema.tree.minutes;
+      const instance = DurationSchema.paths.minutes.instance;
 
       expect(instance).to.be.equal('Number');
       expect(minutes).to.exist;
@@ -73,8 +73,8 @@ describe('Duration', function () {
     });
 
     it('should have seconds field', function () {
-      const seconds = ReporterSchema.tree.seconds;
-      const instance = ReporterSchema.paths.seconds.instance;
+      const seconds = DurationSchema.tree.seconds;
+      const instance = DurationSchema.paths.seconds.instance;
 
       expect(instance).to.be.equal('Number');
       expect(seconds).to.exist;
@@ -85,8 +85,8 @@ describe('Duration', function () {
     });
 
     it('should have milliseconds field', function () {
-      const milliseconds = ReporterSchema.tree.milliseconds;
-      const instance = ReporterSchema.paths.milliseconds.instance;
+      const milliseconds = DurationSchema.tree.milliseconds;
+      const instance = DurationSchema.paths.milliseconds.instance;
 
       expect(instance).to.be.equal('Number');
       expect(milliseconds).to.exist;
@@ -94,11 +94,12 @@ describe('Duration', function () {
       expect(milliseconds.type).to.be.a('function');
       expect(milliseconds.type.name).to.be.equal('Number');
       expect(milliseconds.index).to.be.true;
+      expect(milliseconds.required).to.be.true;
     });
 
     it('should have human field', function () {
-      const human = ReporterSchema.tree.human;
-      const instance = ReporterSchema.paths.human.instance;
+      const human = DurationSchema.tree.human;
+      const instance = DurationSchema.paths.human.instance;
 
       expect(instance).to.be.equal('String');
       expect(human).to.exist;
