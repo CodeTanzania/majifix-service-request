@@ -52,6 +52,7 @@ describe('ContactMethod', function () {
       expect(ContactMethodSchema.statics.FAX).to.equal('Fax');
       expect(ContactMethodSchema.statics.MOBILE_APP).to.exist;
       expect(ContactMethodSchema.statics.MOBILE_APP).to.equal('MOBILE_APP');
+      expect(ContactMethodSchema.statics.METHODS).to.be.an('array');
     });
   });
 });
