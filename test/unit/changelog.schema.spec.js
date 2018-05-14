@@ -4,15 +4,15 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const ChangelogSchema = require(path.join(__dirname, '..', '..', 'lib', 'changelog.schema'));
+const ChangeLogSchema = require(path.join(__dirname, '..', '..', 'lib', 'changelog.schema'));
 
 describe('Changelog', function () {
 
   describe('Schema', function () {
 
     it('should have status field', function () {
-      const status = ChangelogSchema.tree.status;
-      const instance = ChangelogSchema.paths.status.instance;
+      const status = ChangeLogSchema.tree.status;
+      const instance = ChangeLogSchema.paths.status.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(status).to.exist;
@@ -28,8 +28,8 @@ describe('Changelog', function () {
     });
 
     it('should have priority field', function () {
-      const priority = ChangelogSchema.tree.priority;
-      const instance = ChangelogSchema.paths.priority.instance;
+      const priority = ChangeLogSchema.tree.priority;
+      const instance = ChangeLogSchema.paths.priority.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(priority).to.exist;
@@ -44,8 +44,8 @@ describe('Changelog', function () {
     });
 
     it('should have assignee field',function(){
-      const assignee = ChangelogSchema.tree.assignee;
-      const instance = ChangelogSchema.paths.assignee.instance;
+      const assignee = ChangeLogSchema.tree.assignee;
+      const instance = ChangeLogSchema.paths.assignee.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(assignee).to.exist;
@@ -59,8 +59,8 @@ describe('Changelog', function () {
     });
 
     it('should have changer field',function(){
-      const changer = ChangelogSchema.tree.changer;
-      const instance = ChangelogSchema.paths.changer.instance;
+      const changer = ChangeLogSchema.tree.changer;
+      const instance = ChangeLogSchema.paths.changer.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(changer).to.exist;
@@ -74,8 +74,8 @@ describe('Changelog', function () {
     });
 
     it('should have comment field',function(){
-      const comment = ChangelogSchema.tree.comment;
-      const instance = ChangelogSchema.paths.comment.instance;
+      const comment = ChangeLogSchema.tree.comment;
+      const instance = ChangeLogSchema.paths.comment.instance;
 
       expect(instance).to.be.equal('String');
       expect(comment).to.exist;
@@ -88,8 +88,8 @@ describe('Changelog', function () {
     });
 
     it('should have shouldNotify field',function(){
-      const shouldNotify = ChangelogSchema.tree.shouldNotify;
-      const instance = ChangelogSchema.paths.shouldNotify.instance;
+      const shouldNotify = ChangeLogSchema.tree.shouldNotify;
+      const instance = ChangeLogSchema.paths.shouldNotify.instance;
 
       expect(instance).to.be.equal('Boolean');
       expect(shouldNotify).to.exist;
@@ -100,8 +100,8 @@ describe('Changelog', function () {
     });
 
     it('should have wasNotificationSent field',function(){
-      const wasNotificationSent = ChangelogSchema.tree.wasNotificationSent;
-      const instance = ChangelogSchema.paths.wasNotificationSent.instance;
+      const wasNotificationSent = ChangeLogSchema.tree.wasNotificationSent;
+      const instance = ChangeLogSchema.paths.wasNotificationSent.instance;
 
       expect(instance).to.be.equal('Boolean');
       expect(wasNotificationSent).to.exist;
@@ -112,8 +112,8 @@ describe('Changelog', function () {
     });
 
     it('should have visibility field',function(){
-      const visibility = ChangelogSchema.tree.visibility;
-      const instance = ChangelogSchema.paths.visibility.instance;
+      const visibility = ChangeLogSchema.tree.visibility;
+      const instance = ChangeLogSchema.paths.visibility.instance;
 
       expect(instance).to.be.equal('String');
       expect(visibility).to.exist;
