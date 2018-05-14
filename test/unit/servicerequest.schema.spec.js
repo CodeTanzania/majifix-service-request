@@ -115,6 +115,14 @@ describe('ServiceRequest', function () {
 
     describe.skip('reporter');
 
+    describe.skip('method');
+
+    describe.skip('attachment');
+
+    describe.skip('ttr');
+
+    describe.skip('changelog');
+
     it('should have code field', function () {
 
       const code = ServiceRequest.schema.tree.code;
