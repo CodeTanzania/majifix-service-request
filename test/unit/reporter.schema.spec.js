@@ -28,7 +28,7 @@ describe('Reporter', function () {
     it('should have phone field', function () {
 
       const phone = ReporterSchema.tree.phone;
-      const instance = ReporterSchema.paths.account.instance;
+      const instance = ReporterSchema.paths.phone.instance;
 
       expect(instance).to.be.equal('String');
       expect(phone).to.exist;
