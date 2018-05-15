@@ -121,6 +121,8 @@ describe('ServiceRequest', function () {
 
     describe.skip('ttr');
 
+    describe.skip('call');
+
     describe.skip('changelog');
 
     it('should have code field', function () {
@@ -159,6 +161,76 @@ describe('ServiceRequest', function () {
       expect(description.searchable).to.be.true;
       expect(description.fake).to.exist;
 
+    });
+
+    it('should have operator field',function(){
+      const operator = ServiceRequest.schema.tree.operator;
+      const instance = ServiceRequest.schema.paths.operator.instance;
+
+      expect(instance).to.be.equal('ObjectID');
+      expect(operator).to.exist;
+      expect(operator).to.be.an('object');
+      expect(operator.type).to.be.a('function');
+      expect(operator.type.name).to.be.equal('ObjectId');
+      expect(operator.ref).to.be.equal('Party');
+      expect(operator.autoset).to.be.true;
+      expect(operator.exists).to.exist;
+      expect(operator.exists).to.be.true;
+      expect(operator.index).to.be.true;
+    });
+
+    it('should have assignee field',function (){
+      const assignee = ServiceRequest.schema.tree.assignee;
+      const instance = ServiceRequest.schema.paths.assignee.instance;
+
+      expect(instance).to.be.equal('ObjectID');
+      expect(assignee).to.exist;
+      expect(assignee).to.be.an('object');
+      expect(assignee.type).to.be.a('function');
+      expect(assignee.type.name).to.be.equal('ObjectId');
+      expect(assignee.ref).to.be.equal('Party');
+      expect(assignee.autoset).to.be.true;
+      expect(assignee.exists).to.exist;
+      expect(assignee.exists).to.be.true;
+      expect(assignee.index).to.be.true;
+    });
+
+    it('should have address field',function(){
+      const address = ServiceRequest.schema.tree.address;
+      const instance = ServiceRequest.schema.paths.address.instance;
+
+      expect(instance).to.be.equal('String');
+      expect(address).to.exist;
+      expect(address).to.be.an('object');
+      expect(address.type).to.be.a('function');
+      expect(address.type.name).to.be.equal('String');
+      expect(address.trim).to.be.true;
+      expect(address.index).to.be.true;
+      expect(address.searchable).to.be.true;
+    });
+
+    it('should have expectedAt field',function(){
+      const expectedAt = ServiceRequest.schema.tree.expectedAt;
+      const instance = ServiceRequest.schema.paths.expectedAt.instance;
+
+      expect(instance).to.be.equal('Date');
+      expect(expectedAt).to.exist;
+      expect(expectedAt).to.be.an('object');
+      expect(expectedAt.type).to.be.a('function');
+      expect(expectedAt.type.name).to.be.equal('Date');
+      expect(expectedAt.index).to.be.true;
+    });
+
+    it('should have resolvedAt field',function(){
+      const resolvedAt = ServiceRequest.schema.tree.resolvedAt;
+      const instance = ServiceRequest.schema.paths.resolvedAt.instance;
+
+      expect(instance).to.be.equal('Date');
+      expect(resolvedAt).to.exist;
+      expect(resolvedAt).to.be.an('object');
+      expect(resolvedAt.type).to.be.a('function');
+      expect(resolvedAt.type.name).to.be.equal('Date');
+      expect(resolvedAt.index).to.be.true;
     });
 
   });
