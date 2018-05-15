@@ -4,7 +4,7 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const DurationSchema = require(path.join(__dirname, '..', '..', 'lib', 'duration.schema'));
+const DurationSchema = require(path.join(__dirname, '..', '..', 'lib', 'schemas', 'duration.schema'));
 
 describe('Duration', function () {
 

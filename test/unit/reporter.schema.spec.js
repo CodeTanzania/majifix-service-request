@@ -4,7 +4,7 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const ReporterSchema = require(path.join(__dirname, '..', '..', 'lib', 'reporter.schema'));
+const ReporterSchema = require(path.join(__dirname, '..', '..', 'lib', 'schemas', 'reporter.schema'));
 
 describe('Reporter', function () {
 

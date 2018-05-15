@@ -4,7 +4,7 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const ChangeLogSchema = require(path.join(__dirname, '..', '..', 'lib', 'changelog.schema'));
+const ChangeLogSchema = require(path.join(__dirname, '..', '..', 'lib','schemas', 'changelog.schema'));
 
 describe('ChangeLog', function () {
 

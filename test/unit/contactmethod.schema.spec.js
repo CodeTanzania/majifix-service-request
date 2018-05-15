@@ -4,7 +4,7 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const ContactMethodSchema = require(path.join(__dirname, '..', '..', 'lib', 'contactmethod.schema'));
+const ContactMethodSchema = require(path.join(__dirname, '..', '..', 'lib','schemas', 'contactmethod.schema'));
 
 describe('ContactMethod', function () {
 

@@ -4,7 +4,7 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const CallSchema = require(path.join(__dirname, '..', '..', 'lib', 'call.schema'));
+const CallSchema = require(path.join(__dirname, '..', '..', 'lib','schemas', 'call.schema'));
 
 describe('Call', function () {
 

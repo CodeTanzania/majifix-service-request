@@ -4,7 +4,7 @@
 const path = require('path');
 const { expect } = require('chai');
 
-const MediaSchema = require(path.join(__dirname, '..', '..', 'lib', 'media.schema'));
+const MediaSchema = require(path.join(__dirname, '..', '..', 'lib', 'schemas', 'media.schema'));
 
 describe('Media', function () {
 
