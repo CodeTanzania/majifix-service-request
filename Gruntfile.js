@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     apidoc: {
       api: {
-        src: 'lib/',
+        src: ['lib/'],
         dest: 'docs/',
         options: {
           debug: true,
@@ -27,8 +27,8 @@ module.exports = function (grunt) {
           timeout: 20000
         },
         src: [
-          'test/**/*.js',
-          'test/unit/**/*.js',
+          'test/**/*.spec.js',
+          'test/unit/**/*.spec.js',
           '!test/integration/**/*.js'
         ]
       },
@@ -38,8 +38,8 @@ module.exports = function (grunt) {
           timeout: 20000
         },
         src: [
-          'test/**/*.js',
-          'test/integration/**/*.js',
+          'test/**/*.spec.js',
+          'test/integration/**/*.spec.js',
           '!test/unit/**/*.js'
         ]
       }
