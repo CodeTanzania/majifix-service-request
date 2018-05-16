@@ -5,8 +5,7 @@
   "title": "MajiFix Service Request",
   "url": "https://majifix-service-request.herokuapp.com/v0.1.0",
   "sampleUrl": "https://majifix-service-request.herokuapp.com/v0.1.0",
-  "template":
-  {
+  "template": {
     "withCompare": true,
     "withGenerator": true
   }
