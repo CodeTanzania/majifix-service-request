@@ -13,5 +13,16 @@
   ],
   "addons": [
     "mongolab"
-  ]
+  ],
+  "env":
+  {
+    "NPM_CONFIG_PRODUCTION":
+    {
+      "value": "false"
+    },
+    "YARN_PRODUCTION":
+    {
+      "value": "false"
+    }
+  }
 }
