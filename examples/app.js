@@ -11,12 +11,12 @@ const _ = require('lodash');
 const async = require('async');
 const mongoose = require('mongoose');
 // mongoose.set('debug', true);
-const { Jurisdiction } = require('majifix-jurisdiction');
-const { Priority } = require('majifix-priority');
-const { Status } = require('majifix-status');
-const { ServiceGroup } = require('majifix-service-group');
-const { Service } = require('majifix-service');
-const { ServiceRequest, app, info } = require(path.join(__dirname, '..'));
+const { Jurisdiction } = require('@codetanzania/majifix-jurisdiction');
+const { Priority } = require('@codetanzania/majifix-priority');
+const { Status } = require('@codetanzania/majifix-status');
+const { ServiceGroup } = require('@codetanzania/majifix-service-group');
+const { Service } = require('@codetanzania/majifix-service');
+const { ServiceRequest, router, info, app } = require(path.join(__dirname, '..'));
 let samples = require('./samples')(20);
 
 
@@ -127,7 +127,7 @@ function boot() {
     /* fire the app */
     app.start(function (error, env) {
       console.log(
-        `visit http://0.0.0.0:${env.PORT}/v${info.version}/servicerequests`
+        `visit http://0.0.0.0:${env.PORT}/v${router.apiVersion}/servicerequests`
       );
     });
 
