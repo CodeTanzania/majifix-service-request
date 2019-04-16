@@ -1,5 +1,5 @@
 {
-  "name": "majifix-service-request",
+  "name": "@codetanzania/majifix-service-request",
   "version": "0.1.0",
   "description": "A representation of an issue(or service request) reported by civilian(or customer).",
   "main": "index.js",
@@ -102,19 +102,11 @@
     }
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "lint-staged": {
-    "*.{js}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{md,html}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js}": ["prettier --write", "git add"],
+    "*.{md,html}": ["prettier --write", "git add"]
   },
   "husky": {
     "hooks": {
