@@ -1,0 +1,117 @@
+{
+  "name": "@codetanzania/majifix-service-request",
+  "version": "0.1.0",
+  "description": "A representation of an issue(or service request) reported by civilian(or customer).",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "integration": "grunt integration",
+    "dev": "BASE_PATH=./examples nodemon ./examples/app.js",
+    "commit": "git-cz",
+    "commit:all": "git add -A && git-cz",
+    "changelog": "changelog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeTanzania/majifix-service-request.git"
+  },
+  "keywords": [
+    "majifix",
+    "majifix-module",
+    "codetanzania",
+    "open311",
+    "service request",
+    "issue",
+    "complain"
+  ],
+  "contributors": [
+    {
+      "name": "lykmapipo",
+      "email": "lallyelias87@gmail.com",
+      "url": "https://github.com/lykmapipo"
+    },
+    {
+      "name": "benMaruchu",
+      "email": "benmaruchu@gmail.com",
+      "url": "https://github.com/BenMaruchu"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeTanzania/majifix-service-request/issues",
+    "email": "lallyelias87@gmail.com"
+  },
+  "homepage": "https://github.com/CodeTanzania/majifix-service-request",
+  "sandbox": {
+    "url": "https://majifix-service-request.herokuapp.com/v1/servicerequests"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/travis-cli": "^7.5.2",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "faker": "git+https://github.com/Marak/faker.js.git",
+    "generate-changelog": "^1.7.1",
+    "grunt": "^1.0.4",
+    "grunt-apidoc": "^0.11.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-mocha-test": "^0.13.3",
+    "husky": "^1.3.1",
+    "jshint-stylish": "^2.2.1",
+    "lint-staged": "^8.1.5",
+    "mocha": "^6.1.3",
+    "mongoose": "^5.5.2",
+    "nodemon": "^1.18.11",
+    "prettier": "^1.17.0",
+    "sinon": "^7.3.1",
+    "sinon-chai": "^3.3.0",
+    "sinon-mongoose": "^2.2.1",
+    "superagent": "^5.0.2",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@codetanzania/majifix-common": "^0.12.1",
+    "@codetanzania/majifix-jurisdiction": "^1.5.4",
+    "@codetanzania/majifix-priority": "^1.4.4",
+    "@codetanzania/majifix-service": "^1.1.4",
+    "@codetanzania/majifix-service-group": "^1.2.5",
+    "@codetanzania/majifix-status": "^1.4.5",
+    "@lykmapipo/env": "^0.7.3",
+    "@lykmapipo/express-common": "^0.13.0",
+    "@lykmapipo/postman": "^0.5.2",
+    "async": "^2.6.2",
+    "config": "^3.1.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "mongoose-geojson-schemas": "^0.10.1",
+    "mongoose-locale-schema": "^0.2.1",
+    "mongoose-rest-actions": "^0.24.1",
+    "open311-api-sync": "^0.2.2",
+    "parse-ms": "^2.0.0",
+    "pretty-ms": "^4.0.0",
+    "randomcolor": "^0.5.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
+  },
+  "lint-staged": {
+    "*.{js}": ["prettier --write", "git add"],
+    "*.{md,html}": ["prettier --write", "git add"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "majifix-service-request",
+  "version": "0.1.0",
+  "description": "A representation of an issue(or service request) reported by civilian(or customer).",
+  "title": "MajiFix Service Request",
+  "url": "https://majifix-service-request.herokuapp.com/v0.1.0",
+  "sampleUrl": "https://majifix-service-request.herokuapp.com/v0.1.0",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  }
+}

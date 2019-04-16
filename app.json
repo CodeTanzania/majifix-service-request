@@ -1,0 +1,28 @@
+{
+  "name": "majifix-service-request",
+  "description": "A representation of an issue(or service request) reported by civilian(or customer).",
+  "repository": "https://github.com/CodeTanzania/majifix-service-request.git",
+  "keywords": [
+    "majifix",
+    "majifix-module",
+    "codetanzania",
+    "open311",
+    "service request",
+    "issue",
+    "complain"
+  ],
+  "addons": [
+    "mongolab"
+  ],
+  "env":
+  {
+    "NPM_CONFIG_PRODUCTION":
+    {
+      "value": "false"
+    },
+    "YARN_PRODUCTION":
+    {
+      "value": "false"
+    }
+  }
+}
