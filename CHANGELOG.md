@@ -1,3 +1,13 @@
+#### 0.2.2 (2019-04-17)
+
+##### Chores
+
+- update package version to 0.2.2 ([b55365c7](https://github.com/CodeTanzania/majifix-service-request/commit/b55365c7a15a437fcff36cc65378cf8f50ac5521))
+
+##### Refactors
+
+- use api version from env file ([4eed774f](https://github.com/CodeTanzania/majifix-service-request/commit/4eed774f94742bec4e2ec135917e5a0fdff69aa2))
+
 #### 0.2.1 (2019-04-17)
 
 ##### Chores
