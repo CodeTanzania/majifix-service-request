@@ -1,3 +1,17 @@
+#### 0.2.0 (2019-04-17)
+
+##### Build System / Dependencies
+
+- **travis:** add redis-server service ([0dcb9644](https://github.com/CodeTanzania/majifix-service-request/commit/0dcb964498bb3293f25a30108aef24014192a1dc))
+
+##### Chores
+
+- **package.json:** update package version to 0.2.0 ([229a7faf](https://github.com/CodeTanzania/majifix-service-request/commit/229a7fafc44ff2ef420474eee6cc82ed6410bbf4))
+
+##### New Features
+
+- **model:** add faker for all required fields ([7c51c94f](https://github.com/CodeTanzania/majifix-service-request/commit/7c51c94f4aa38ffa6bca9369551b6e5d5cefd22d))
+
 #### 0.1.0 (2019-04-16)
 
 ##### Chores
