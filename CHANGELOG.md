@@ -1,3 +1,13 @@
+#### 0.2.1 (2019-04-17)
+
+##### Chores
+
+- **package.json:** update package version to 0.2.1 ([81d3d82d](https://github.com/CodeTanzania/majifix-service-request/commit/81d3d82d8a0c19e7d7fd1b5bf8ca97aea1603e20))
+
+##### Refactors
+
+- use environment variable instead of config files ([c9ff2878](https://github.com/CodeTanzania/majifix-service-request/commit/c9ff28785df9457ee56b8316f1a2f1f36ed46a32))
+
 #### 0.2.0 (2019-04-17)
 
 ##### Build System / Dependencies
