@@ -84,7 +84,6 @@
     "@lykmapipo/express-common": "^0.13.0",
     "@lykmapipo/postman": "^0.5.2",
     "async": "^2.6.2",
-    "config": "^3.1.0",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
@@ -102,11 +101,19 @@
     }
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "lint-staged": {
-    "*.{js}": ["prettier --write", "git add"],
-    "*.{md,html}": ["prettier --write", "git add"]
+    "*.{js}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{md,html}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
