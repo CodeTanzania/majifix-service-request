@@ -1,3 +1,13 @@
+#### 0.2.3 (2019-04-17)
+
+##### Chores
+
+- **package.json:** update package version to 0.2.3 ([33dad628](https://github.com/CodeTanzania/majifix-service-request/commit/33dad628b8bb30a08eb323d3f9dae7d4792a62a6))
+
+##### Bug Fixes
+
+- add counter model to fix missing model issue ([5ccdbd27](https://github.com/CodeTanzania/majifix-service-request/commit/5ccdbd27748ec2d5a8c33cb6d64b35e3197ebd0d))
+
 #### 0.2.2 (2019-04-17)
 
 ##### Chores
