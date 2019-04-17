@@ -1,3 +1,13 @@
+#### 0.2.4 (2019-04-17)
+
+##### Chores
+
+- **package.json:** update package version to 0.2.4 ([65fea36b](https://github.com/CodeTanzania/majifix-service-request/commit/65fea36bfd2f5967c14cb0ba28ce141532e809c8))
+
+##### Bug Fixes
+
+- **reporter:** update reporter phone faker function ([c77dcfe1](https://github.com/CodeTanzania/majifix-service-request/commit/c77dcfe1ee9e28f5c80ca259d1b09e078b9c0301))
+
 #### 0.2.3 (2019-04-17)
 
 ##### Chores
