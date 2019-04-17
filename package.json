@@ -1,6 +1,6 @@
 {
   "name": "@codetanzania/majifix-service-request",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A representation of an issue(or service request) reported by civilian(or customer).",
   "main": "index.js",
   "scripts": {
