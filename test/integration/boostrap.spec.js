@@ -1,46 +1,13 @@
 'use strict';
 
 /* dependencies */
-const async = require('async');
-const mongoose = require('mongoose');
+const { connect, clear, drop } = require('@lykmapipo/mongoose-test-helpers');
 
+/* setup database */
+before(done => connect(done));
 
-function wipe(done) {
-  const cleanups = mongoose.modelNames()
-    .map(function (modelName) {
-      //grab mongoose model
-      return mongoose.model(modelName);
-    })
-    .map(function (Model) {
-      //drop model collection
-      return function (next) {
-        Model.collection.drop(next);
-      };
-    });
+/* clear database */
+before(done => clear(done));
 
-  //run all clean ups parallel
-  async.parallel(cleanups, function (error) {
-    if (error && error.message !== 'ns not found') {
-      done(error);
-    } else {
-      done();
-    }
-  });
-}
-
-
-//setup database
-before(function (done) {
-  mongoose.connect('mongodb://localhost/majifix-service-request', done);
-});
-
-// clear previous states
-before(function (done) {
-  wipe(done);
-});
-
-
-// restore initial environment
-after(function (done) {
-  wipe(done);
-});
+/* drop database */
+after(done => drop(done));
