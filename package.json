@@ -49,6 +49,7 @@
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
     "@commitlint/travis-cli": "^7.5.2",
+    "@lykmapipo/mongoose-test-helpers": "^0.3.2",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "commitizen": "^3.0.7",
@@ -67,7 +68,7 @@
     "mongoose": "^5.5.2",
     "nodemon": "^1.18.11",
     "prettier": "^1.17.0",
-    "sinon": "^7.3.1",
+    "sinon": "^7.3.2",
     "sinon-chai": "^3.3.0",
     "sinon-mongoose": "^2.2.1",
     "superagent": "^5.0.2",
@@ -87,8 +88,8 @@
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
-    "mongoose-geojson-schemas": "^0.10.1",
-    "mongoose-locale-schema": "^0.2.1",
+    "mongoose-geojson-schemas": "^0.10.2",
+    "mongoose-locale-schema": "^0.2.2",
     "mongoose-rest-actions": "^0.24.1",
     "open311-api-sync": "^0.2.2",
     "parse-ms": "^2.0.0",
@@ -101,11 +102,19 @@
     }
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "lint-staged": {
-    "*.{js}": ["prettier --write", "git add"],
-    "*.{md,html}": ["prettier --write", "git add"]
+    "*.{js}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{md,html}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
