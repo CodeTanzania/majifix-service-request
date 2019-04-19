@@ -127,7 +127,7 @@ function boot() {
     /* fire the app */
     app.start(function (error, env) {
       console.log(
-        `visit http://0.0.0.0:${env.PORT}/v${router.apiVersion}/servicerequests`
+        `visit http://0.0.0.0:${env.PORT}/${router.version}/servicerequests`
       );
     });
 
