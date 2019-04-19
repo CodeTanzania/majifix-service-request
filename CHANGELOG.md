@@ -1,3 +1,30 @@
+#### 0.2.5 (2019-04-19)
+
+##### Chores
+
+- **package.json:** update package version to 0.2.5 ([3b79e32c](https://github.com/CodeTanzania/majifix-service-request/commit/3b79e32c034c822e3102068fbe5985f279d1cbf6))
+- update dependencies to latest versions ([d30bd14a](https://github.com/CodeTanzania/majifix-service-request/commit/d30bd14a3958ee5b6e2f1bb9ed89a2ce6fed38a4))
+
+##### Documentation Changes
+
+- **jsdocs:** remove autoset @param field in jsdoc ([6ab53c0f](https://github.com/CodeTanzania/majifix-service-request/commit/6ab53c0fb0621ffb9e04d4933ef45059a11302c4))
+
+##### New Features
+
+- expose apiVersion which is the same as router version ([04af0618](https://github.com/CodeTanzania/majifix-service-request/commit/04af061859004bea011e5035db040f82615d995e))
+
+##### Bug Fixes
+
+- **example app:** use router.version and not router.apiVersion ([e594b4a3](https://github.com/CodeTanzania/majifix-service-request/commit/e594b4a3738ae631a68da366530eb49750614994))
+- remove autoset value which had issue with tests ([e849a52d](https://github.com/CodeTanzania/majifix-service-request/commit/e849a52d52dacc5b88e704bf93baf870b7141b9a))
+
+##### Tests
+
+- **integration:**
+  - add http, delete, put, post and patch tests ([a91eb825](https://github.com/CodeTanzania/majifix-service-request/commit/a91eb825dfd8eeeac1f80de1b62dbcfd1aad2c21))
+  - add get by id specs ([a6102faa](https://github.com/CodeTanzania/majifix-service-request/commit/a6102faaa9724801424459fae3bb0c9c0f328d2d))
+  - setup integration test and add tests for get function ([59a59d02](https://github.com/CodeTanzania/majifix-service-request/commit/59a59d02fca72b6f7bcf90b390c17adefa20eb34))
+
 #### 0.2.4 (2019-04-17)
 
 ##### Chores
