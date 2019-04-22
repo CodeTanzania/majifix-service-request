@@ -4,12 +4,22 @@
 const path = require('path');
 
 /* assertions */
-const assertSla = require(path.join(__dirname, '..', 'assertions', 'sla.assertions'));
+const assertSla = require(path.join(
+  __dirname,
+  '..',
+  'assertions',
+  'sla.assertions'
+));
 
-const SlaSchema = require(path.join(__dirname, '..', '..', 'lib', 'schemas', 'sla.schema'));
+const SlaSchema = require(path.join(
+  __dirname,
+  '..',
+  '..',
+  'lib',
+  'schemas',
+  'sla.schema'
+));
 
-describe('Sla', function () {
-
+describe('Sla', () => {
   assertSla(SlaSchema);
-
 });

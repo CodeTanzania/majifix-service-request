@@ -28,9 +28,9 @@ const assertReporter = require(path.join(
 ));
 const assertTtr = require(path.join(assertionsPath, 'duration.assertions'));
 
-describe('ServiceRequest', function() {
-  describe('Schema', function() {
-    it('should have jurisdiction field', function() {
+describe('ServiceRequest', () => {
+  describe('Schema', () => {
+    it('should have jurisdiction field', () => {
       const jurisdiction = ServiceRequest.schema.tree.jurisdiction;
       const instance = ServiceRequest.schema.paths.jurisdiction.instance;
 
@@ -47,7 +47,7 @@ describe('ServiceRequest', function() {
       expect(jurisdiction.index).to.be.true;
     });
 
-    it('should have group field', function() {
+    it('should have group field', () => {
       const group = ServiceRequest.schema.tree.group;
       const instance = ServiceRequest.schema.paths.group.instance;
 
@@ -63,7 +63,7 @@ describe('ServiceRequest', function() {
       expect(group.index).to.be.true;
     });
 
-    it('should have service field', function() {
+    it('should have service field', () => {
       const service = ServiceRequest.schema.tree.service;
       const instance = ServiceRequest.schema.paths.service.instance;
 
@@ -79,7 +79,7 @@ describe('ServiceRequest', function() {
       expect(service.index).to.be.true;
     });
 
-    it('should have priority field', function() {
+    it('should have priority field', () => {
       const priority = ServiceRequest.schema.tree.priority;
       const instance = ServiceRequest.schema.paths.priority.instance;
 
@@ -95,7 +95,7 @@ describe('ServiceRequest', function() {
       expect(priority.index).to.be.true;
     });
 
-    it('should have status field', function() {
+    it('should have status field', () => {
       const status = ServiceRequest.schema.tree.status;
       const instance = ServiceRequest.schema.paths.status.instance;
 
@@ -111,16 +111,16 @@ describe('ServiceRequest', function() {
       expect(status.index).to.be.true;
     });
 
-    describe('reporter', function() {
+    describe('reporter', () => {
       assertReporter(ServiceRequest.schema.paths.reporter.schema);
     });
 
-    describe('method', function() {
+    describe('method', () => {
       assertMethod(ServiceRequest.schema.paths.method.schema);
     });
 
-    describe('attachments', function() {
-      it('should have index property', function() {
+    describe('attachments', () => {
+      it('should have index property', () => {
         const attachments = ServiceRequest.schema.tree.attachments;
 
         expect(attachments.index).to.exist;
@@ -130,15 +130,15 @@ describe('ServiceRequest', function() {
       assertAttachment(ServiceRequest.schema.paths.attachments.schema);
     });
 
-    describe('ttr', function() {
+    describe('ttr', () => {
       assertTtr(ServiceRequest.schema.paths.ttr.schema);
     });
 
-    describe('call', function() {
+    describe('call', () => {
       assertCall(ServiceRequest.schema.paths.call.schema);
     });
 
-    it('should have code field', function() {
+    it('should have code field', () => {
       const code = ServiceRequest.schema.tree.code;
       const instance = ServiceRequest.schema.paths.code.instance;
 
@@ -155,7 +155,7 @@ describe('ServiceRequest', function() {
       expect(code.fake).to.exist;
     });
 
-    it('should have description field', function() {
+    it('should have description field', () => {
       const description = ServiceRequest.schema.tree.description;
       const instance = ServiceRequest.schema.paths.description.instance;
 
@@ -171,7 +171,7 @@ describe('ServiceRequest', function() {
       expect(description.fake).to.exist;
     });
 
-    it('should have operator field', function() {
+    it('should have operator field', () => {
       const operator = ServiceRequest.schema.tree.operator;
       const instance = ServiceRequest.schema.paths.operator.instance;
 
@@ -186,7 +186,7 @@ describe('ServiceRequest', function() {
       expect(operator.index).to.be.true;
     });
 
-    it('should have assignee field', function() {
+    it('should have assignee field', () => {
       const assignee = ServiceRequest.schema.tree.assignee;
       const instance = ServiceRequest.schema.paths.assignee.instance;
 
@@ -201,7 +201,7 @@ describe('ServiceRequest', function() {
       expect(assignee.index).to.be.true;
     });
 
-    it('should have address field', function() {
+    it('should have address field', () => {
       const address = ServiceRequest.schema.tree.address;
       const instance = ServiceRequest.schema.paths.address.instance;
 
@@ -215,7 +215,7 @@ describe('ServiceRequest', function() {
       expect(address.searchable).to.be.true;
     });
 
-    it('should have expectedAt field', function() {
+    it('should have expectedAt field', () => {
       const expectedAt = ServiceRequest.schema.tree.expectedAt;
       const instance = ServiceRequest.schema.paths.expectedAt.instance;
 
@@ -227,7 +227,7 @@ describe('ServiceRequest', function() {
       expect(expectedAt.index).to.be.true;
     });
 
-    it('should have resolvedAt field', function() {
+    it('should have resolvedAt field', () => {
       const resolvedAt = ServiceRequest.schema.tree.resolvedAt;
       const instance = ServiceRequest.schema.paths.resolvedAt.instance;
 

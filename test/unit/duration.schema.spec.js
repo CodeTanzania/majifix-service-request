@@ -4,12 +4,22 @@
 const path = require('path');
 
 /* assertions */
-const assertDuration = require(path.join(__dirname, '..', 'assertions', 'duration.assertions'));
+const assertDuration = require(path.join(
+  __dirname,
+  '..',
+  'assertions',
+  'duration.assertions'
+));
 
-const DurationSchema = require(path.join(__dirname, '..', '..', 'lib', 'schemas', 'duration.schema'));
+const DurationSchema = require(path.join(
+  __dirname,
+  '..',
+  '..',
+  'lib',
+  'schemas',
+  'duration.schema'
+));
 
-describe('Duration', function () {
-
+describe('Duration', () => {
   assertDuration(DurationSchema);
-
 });

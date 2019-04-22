@@ -3,12 +3,9 @@
 /* dependencies */
 const { expect } = require('chai');
 
-
-module.exports = function (ContactMethodSchema) {
-
-  describe('Schema', function () {
-
-    it('should have name field', function () {
+module.exports = function(ContactMethodSchema) {
+  describe('Schema', () => {
+    it('should have name field', () => {
       const name = ContactMethodSchema.tree.name;
       const instance = ContactMethodSchema.paths.name.instance;
 
@@ -21,7 +18,7 @@ module.exports = function (ContactMethodSchema) {
       expect(name.index).to.be.true;
     });
 
-    it('should have workspace field', function () {
+    it('should have workspace field', () => {
       const workspace = ContactMethodSchema.tree.workspace;
       const instance = ContactMethodSchema.paths.workspace.instance;
 
@@ -34,8 +31,7 @@ module.exports = function (ContactMethodSchema) {
       expect(workspace.index).to.be.true;
     });
 
-    it('should expose contact methods types as statics', function () {
-
+    it('should expose contact methods types as statics', () => {
       expect(ContactMethodSchema.statics.PHONE_CALL).to.exist;
       expect(ContactMethodSchema.statics.PHONE_CALL).to.equal('Call');
       expect(ContactMethodSchema.statics.EMAIL).to.exist;
