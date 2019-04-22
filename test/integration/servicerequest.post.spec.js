@@ -25,7 +25,7 @@ describe('ServiceRequest', () => {
   before(done => create(service, done));
 
   describe('static post', () => {
-    it.skip('should be able to post', done => {
+    it('should be able to post', done => {
       let serviceRequest = ServiceRequest.fake();
       serviceRequest.jurisdiction = jurisdiction;
       serviceRequest.group = serviceGroup;

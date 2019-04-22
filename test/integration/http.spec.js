@@ -48,6 +48,7 @@ describe('Service Request', () => {
     });
 
     it.skip('should handle HTTP POST on /servicerequests', done => {
+      // TODO resolve issue with autopopulation notification plugin line 143
       request(app)
         .post(`/${apiVersion}/servicerequests`)
         .set('Accept', 'application/json')
