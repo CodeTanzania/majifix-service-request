@@ -39,8 +39,8 @@ describe('ServiceRequest', () => {
   });
 
   describe('get by id', () => {
-    it('should be able to get an instance', function(done) {
-      ServiceRequest.getById(serviceRequest._id, function(error, found) {
+    it('should be able to get an instance', done => {
+      ServiceRequest.getById(serviceRequest._id, (error, found) => {
         expect(error).to.not.exist;
         expect(found).to.exist;
         expect(found._id).to.eql(serviceRequest._id);
@@ -57,13 +57,13 @@ describe('ServiceRequest', () => {
       });
     });
 
-    it('should be able to get with options', function(done) {
+    it('should be able to get with options', done => {
       const options = {
         _id: serviceRequest._id,
         select: 'code',
       };
 
-      ServiceRequest.getById(options, function(error, found) {
+      ServiceRequest.getById(options, (error, found) => {
         expect(error).to.not.exist;
         expect(found).to.exist;
         expect(found._id).to.eql(serviceRequest._id);
@@ -72,7 +72,7 @@ describe('ServiceRequest', () => {
         //...assert selection
         const fields = _.keys(found.toObject());
         expect(fields).to.have.length(7);
-        _.map(['assignee', 'createdAt', 'updatedAt'], function(field) {
+        _.map(['assignee', 'createdAt', 'updatedAt'], field => {
           expect(fields).to.not.include(field);
         });
 
@@ -80,10 +80,10 @@ describe('ServiceRequest', () => {
       });
     });
 
-    it('should throw if not exists', function(done) {
+    it('should throw if not exists', done => {
       const serviceRequest = ServiceRequest.fake();
 
-      ServiceRequest.getById(serviceRequest._id, function(error, found) {
+      ServiceRequest.getById(serviceRequest._id, (error, found) => {
         expect(error).to.exist;
         expect(error.status).to.exist;
         expect(error.message).to.be.equal('Not Found');

@@ -42,7 +42,7 @@ describe('ServiceRequest', () => {
 
   describe('get', () => {
     it('should be able to get without options', done => {
-      ServiceRequest.get(function(error, results) {
+      ServiceRequest.get((error, results) => {
         expect(error).to.not.exist;
         expect(results).to.exist;
         expect(results.data).to.exist;
@@ -66,9 +66,9 @@ describe('ServiceRequest', () => {
       });
     });
 
-    it('should be able to get with options', function(done) {
+    it('should be able to get with options', done => {
       const options = { page: 1, limit: 20 };
-      ServiceRequest.get(options, function(error, results) {
+      ServiceRequest.get(options, (error, results) => {
         expect(error).to.not.exist;
         expect(results).to.exist;
         expect(results.data).to.exist;
@@ -91,9 +91,9 @@ describe('ServiceRequest', () => {
       });
     });
 
-    it('should be able to search with options', function(done) {
+    it('should be able to search with options', done => {
       const options = { filter: { q: serviceRequests[0].code } };
-      ServiceRequest.get(options, function(error, results) {
+      ServiceRequest.get(options, (error, results) => {
         expect(error).to.not.exist;
         expect(results).to.exist;
         expect(results.data).to.exist;
@@ -116,9 +116,9 @@ describe('ServiceRequest', () => {
       });
     });
 
-    it('should parse filter options', function(done) {
+    it('should parse filter options', done => {
       const options = { filter: { code: serviceRequests[0].code } };
-      ServiceRequest.get(options, function(error, results) {
+      ServiceRequest.get(options, (error, results) => {
         expect(error).to.not.exist;
         expect(results).to.exist;
         expect(results.data).to.exist;
