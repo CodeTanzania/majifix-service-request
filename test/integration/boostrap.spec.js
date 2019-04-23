@@ -1,46 +1,34 @@
 'use strict';
 
+
+process.env.NODE_ENV = 'test';
+
+
 /* dependencies */
-const async = require('async');
 const mongoose = require('mongoose');
+const MONGODB_URI = 'mongodb://localhost/majifix-service-request';
 
 
-function wipe(done) {
-  const cleanups = mongoose.modelNames()
-    .map(function (modelName) {
-      //grab mongoose model
-      return mongoose.model(modelName);
-    })
-    .map(function (Model) {
-      //drop model collection
-      return function (next) {
-        Model.collection.drop(next);
-      };
-    });
-
-  //run all clean ups parallel
-  async.parallel(cleanups, function (error) {
-    if (error && error.message !== 'ns not found') {
-      done(error);
-    } else {
-      done();
-    }
-  });
-}
+/* clean and restore database */
+const wipe = (done) => {
+  if (mongoose.connection && mongoose.connection.dropDatabase) {
+    mongoose.connection.dropDatabase(done);
+  } else {
+    done();
+  }
+};
 
 
-//setup database
-before(function (done) {
-  mongoose.connect('mongodb://localhost/majifix-service-request', done);
-});
-
-// clear previous states
-before(function (done) {
-  wipe(done);
+/* setup database */
+before((done) => {
+  const options = { useNewUrlParser: true };
+  mongoose.connect(MONGODB_URI, options, done);
 });
 
 
-// restore initial environment
-after(function (done) {
-  wipe(done);
-});
+/* clear database */
+before(wipe);
+
+
+/* clear database */
+after(wipe);
