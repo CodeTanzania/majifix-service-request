@@ -3,11 +3,9 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function (ReporterSchema) {
-
-  describe('Schema', function () {
-
-    it('should have name field', function () {
+module.exports = function(ReporterSchema) {
+  describe('Schema', () => {
+    it('should have name field', () => {
       const name = ReporterSchema.tree.name;
       const instance = ReporterSchema.paths.name.instance;
 
@@ -19,11 +17,9 @@ module.exports = function (ReporterSchema) {
       expect(name.trim).to.be.true;
       expect(name.searchable).to.be.true;
       expect(name.index).to.be.true;
-
     });
 
-    it('should have phone field', function () {
-
+    it('should have phone field', () => {
       const phone = ReporterSchema.tree.phone;
       const instance = ReporterSchema.paths.phone.instance;
 
@@ -38,7 +34,7 @@ module.exports = function (ReporterSchema) {
       expect(phone.index).to.be.true;
     });
 
-    it('should have email field', function () {
+    it('should have email field', () => {
       const email = ReporterSchema.tree.email;
       const instance = ReporterSchema.paths.email.instance;
 
@@ -53,7 +49,7 @@ module.exports = function (ReporterSchema) {
       expect(email.index).to.be.true;
     });
 
-    it('should have account field', function () {
+    it('should have account field', () => {
       const account = ReporterSchema.tree.account;
       const instance = ReporterSchema.paths.account.instance;
 
@@ -67,6 +63,5 @@ module.exports = function (ReporterSchema) {
       expect(account.uppercase).to.be.true;
       expect(account.index).to.be.true;
     });
-
   });
 };

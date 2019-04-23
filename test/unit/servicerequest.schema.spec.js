@@ -1,35 +1,38 @@
 'use strict';
 
-
 /* dependencies */
 const path = require('path');
 const { expect } = require('chai');
 
-
 /* declarations */
-const ServiceRequest =
-  require(path.join(__dirname, '..', '..', 'lib', 'servicerequest.model'));
+const ServiceRequest = require(path.join(
+  __dirname,
+  '..',
+  '..',
+  'lib',
+  'servicerequest.model'
+));
 
 /* assertions */
 const assertionsPath = path.join(__dirname, '..', 'assertions');
 
 const assertAttachment = require(path.join(assertionsPath, 'media.assertions'));
 const assertCall = require(path.join(assertionsPath, 'call.assertions'));
-const assertChangeLog = require(path.join(assertionsPath, 'changelog.assertions'));
-const assertMethod = require(path.join(assertionsPath, 'contactmethod.assertions'));
-const assertReporter = require(path.join(assertionsPath, 'reporter.assertions'));
+const assertMethod = require(path.join(
+  assertionsPath,
+  'contactmethod.assertions'
+));
+const assertReporter = require(path.join(
+  assertionsPath,
+  'reporter.assertions'
+));
 const assertTtr = require(path.join(assertionsPath, 'duration.assertions'));
 
-
-describe('ServiceRequest', function () {
-
-  describe('Schema', function () {
-
-    it('should have jurisdiction field', function () {
-
+describe('ServiceRequest', () => {
+  describe('Schema', () => {
+    it('should have jurisdiction field', () => {
       const jurisdiction = ServiceRequest.schema.tree.jurisdiction;
-      const instance =
-        ServiceRequest.schema.paths.jurisdiction.instance;
+      const instance = ServiceRequest.schema.paths.jurisdiction.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(jurisdiction).to.exist;
@@ -38,14 +41,13 @@ describe('ServiceRequest', function () {
       expect(jurisdiction.type.name).to.be.equal('ObjectId');
       expect(jurisdiction.ref).to.be.equal('Jurisdiction');
       expect(jurisdiction.required).to.be.true;
-      expect(jurisdiction.autoset).to.be.true;
+
       expect(jurisdiction.exists).to.be.true;
       expect(jurisdiction.exists).to.exist;
       expect(jurisdiction.index).to.be.true;
     });
 
-    it('should have group field', function () {
-
+    it('should have group field', () => {
       const group = ServiceRequest.schema.tree.group;
       const instance = ServiceRequest.schema.paths.group.instance;
 
@@ -56,18 +58,14 @@ describe('ServiceRequest', function () {
       expect(group.type.name).to.be.equal('ObjectId');
       expect(group.ref).to.be.equal('ServiceGroup');
       expect(group.required).to.be.true;
-      expect(group.autoset).to.be.true;
       expect(group.exists).to.be.true;
       expect(group.exists).to.exist;
       expect(group.index).to.be.true;
-
     });
 
-    it('should have service field', function () {
-
+    it('should have service field', () => {
       const service = ServiceRequest.schema.tree.service;
-      const instance =
-        ServiceRequest.schema.paths.service.instance;
+      const instance = ServiceRequest.schema.paths.service.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(service).to.exist;
@@ -76,18 +74,14 @@ describe('ServiceRequest', function () {
       expect(service.type.name).to.be.equal('ObjectId');
       expect(service.ref).to.be.equal('Service');
       expect(service.required).to.be.true;
-      expect(service.autoset).to.be.true;
       expect(service.exists).to.be.true;
       expect(service.exists).to.exist;
       expect(service.index).to.be.true;
-
     });
 
-    it('should have priority field', function () {
-
+    it('should have priority field', () => {
       const priority = ServiceRequest.schema.tree.priority;
-      const instance =
-        ServiceRequest.schema.paths.priority.instance;
+      const instance = ServiceRequest.schema.paths.priority.instance;
 
       expect(instance).to.be.equal('ObjectID');
       expect(priority).to.exist;
@@ -96,15 +90,12 @@ describe('ServiceRequest', function () {
       expect(priority.type.name).to.be.equal('ObjectId');
       expect(priority.ref).to.be.equal('Priority');
       expect(priority.required).to.be.true;
-      expect(priority.autoset).to.be.true;
       expect(priority.exists).to.be.true;
       expect(priority.exists).to.exist;
       expect(priority.index).to.be.true;
-
     });
 
-    it('should have status field', function () {
-
+    it('should have status field', () => {
       const status = ServiceRequest.schema.tree.status;
       const instance = ServiceRequest.schema.paths.status.instance;
 
@@ -115,27 +106,21 @@ describe('ServiceRequest', function () {
       expect(status.type.name).to.be.equal('ObjectId');
       expect(status.ref).to.be.equal('Status');
       expect(status.required).to.be.true;
-      expect(status.autoset).to.be.true;
       expect(status.exists).to.be.true;
       expect(status.exists).to.exist;
       expect(status.index).to.be.true;
-
     });
 
-
-    describe('reporter', function () {
-
+    describe('reporter', () => {
       assertReporter(ServiceRequest.schema.paths.reporter.schema);
     });
 
-    describe('method', function () {
-
+    describe('method', () => {
       assertMethod(ServiceRequest.schema.paths.method.schema);
     });
 
-    describe('attachments', function () {
-
-      it('should have index property', function () {
+    describe('attachments', () => {
+      it('should have index property', () => {
         const attachments = ServiceRequest.schema.tree.attachments;
 
         expect(attachments.index).to.exist;
@@ -145,20 +130,15 @@ describe('ServiceRequest', function () {
       assertAttachment(ServiceRequest.schema.paths.attachments.schema);
     });
 
-    describe('ttr', function () {
+    describe('ttr', () => {
       assertTtr(ServiceRequest.schema.paths.ttr.schema);
     });
 
-    describe('call', function () {
+    describe('call', () => {
       assertCall(ServiceRequest.schema.paths.call.schema);
     });
 
-    describe('changelog', function () {
-      assertChangeLog(ServiceRequest.schema.paths.changelogs.schema);
-    });
-
-    it('should have code field', function () {
-
+    it('should have code field', () => {
       const code = ServiceRequest.schema.tree.code;
       const instance = ServiceRequest.schema.paths.code.instance;
 
@@ -173,14 +153,11 @@ describe('ServiceRequest', function () {
       expect(code.unique).to.be.true;
       expect(code.searchable).to.be.true;
       expect(code.fake).to.exist;
-
     });
 
-    it('should have description field', function () {
-
+    it('should have description field', () => {
       const description = ServiceRequest.schema.tree.description;
-      const instance =
-        ServiceRequest.schema.paths.description.instance;
+      const instance = ServiceRequest.schema.paths.description.instance;
 
       expect(instance).to.be.equal('String');
       expect(description).to.exist;
@@ -192,10 +169,9 @@ describe('ServiceRequest', function () {
       expect(description.index).to.be.true;
       expect(description.searchable).to.be.true;
       expect(description.fake).to.exist;
-
     });
 
-    it('should have operator field', function () {
+    it('should have operator field', () => {
       const operator = ServiceRequest.schema.tree.operator;
       const instance = ServiceRequest.schema.paths.operator.instance;
 
@@ -205,13 +181,12 @@ describe('ServiceRequest', function () {
       expect(operator.type).to.be.a('function');
       expect(operator.type.name).to.be.equal('ObjectId');
       expect(operator.ref).to.be.equal('Party');
-      expect(operator.autoset).to.be.true;
       expect(operator.exists).to.exist;
       expect(operator.exists).to.be.true;
       expect(operator.index).to.be.true;
     });
 
-    it('should have assignee field', function () {
+    it('should have assignee field', () => {
       const assignee = ServiceRequest.schema.tree.assignee;
       const instance = ServiceRequest.schema.paths.assignee.instance;
 
@@ -221,13 +196,12 @@ describe('ServiceRequest', function () {
       expect(assignee.type).to.be.a('function');
       expect(assignee.type.name).to.be.equal('ObjectId');
       expect(assignee.ref).to.be.equal('Party');
-      expect(assignee.autoset).to.be.true;
       expect(assignee.exists).to.exist;
       expect(assignee.exists).to.be.true;
       expect(assignee.index).to.be.true;
     });
 
-    it('should have address field', function () {
+    it('should have address field', () => {
       const address = ServiceRequest.schema.tree.address;
       const instance = ServiceRequest.schema.paths.address.instance;
 
@@ -241,7 +215,7 @@ describe('ServiceRequest', function () {
       expect(address.searchable).to.be.true;
     });
 
-    it('should have expectedAt field', function () {
+    it('should have expectedAt field', () => {
       const expectedAt = ServiceRequest.schema.tree.expectedAt;
       const instance = ServiceRequest.schema.paths.expectedAt.instance;
 
@@ -253,7 +227,7 @@ describe('ServiceRequest', function () {
       expect(expectedAt.index).to.be.true;
     });
 
-    it('should have resolvedAt field', function () {
+    it('should have resolvedAt field', () => {
       const resolvedAt = ServiceRequest.schema.tree.resolvedAt;
       const instance = ServiceRequest.schema.paths.resolvedAt.instance;
 
@@ -264,7 +238,5 @@ describe('ServiceRequest', function () {
       expect(resolvedAt.type.name).to.be.equal('Date');
       expect(resolvedAt.index).to.be.true;
     });
-
   });
-
 });

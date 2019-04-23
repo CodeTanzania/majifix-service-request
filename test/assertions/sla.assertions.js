@@ -3,11 +3,9 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function (SlaSchema) {
-
-  describe('Schema', function () {
-
-    it('should have ttr field', function () {
+module.exports = function(SlaSchema) {
+  describe('Schema', () => {
+    it('should have ttr field', () => {
       const ttr = SlaSchema.tree.ttr;
       const instance = SlaSchema.paths.ttr.instance;
 
@@ -18,5 +16,4 @@ module.exports = function (SlaSchema) {
       expect(ttr.type.name).to.be.equal('Number');
     });
   });
-
 };

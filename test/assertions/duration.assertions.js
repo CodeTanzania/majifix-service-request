@@ -3,11 +3,9 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function (DurationSchema) {
-
-  describe('Schema', function () {
-
-    it('should have years field', function () {
+module.exports = function(DurationSchema) {
+  describe('Schema', () => {
+    it('should have years field', () => {
       const years = DurationSchema.tree.years;
       const instance = DurationSchema.paths.years.instance;
 
@@ -17,11 +15,9 @@ module.exports = function (DurationSchema) {
       expect(years.type).to.be.a('function');
       expect(years.type.name).to.be.equal('Number');
       expect(years.index).to.be.true;
-
     });
 
-    it('should have months field', function () {
-
+    it('should have months field', () => {
       const months = DurationSchema.tree.months;
       const instance = DurationSchema.paths.months.instance;
 
@@ -33,7 +29,7 @@ module.exports = function (DurationSchema) {
       expect(months.index).to.be.true;
     });
 
-    it('should have days field', function () {
+    it('should have days field', () => {
       const days = DurationSchema.tree.days;
       const instance = DurationSchema.paths.days.instance;
 
@@ -45,7 +41,7 @@ module.exports = function (DurationSchema) {
       expect(days.index).to.be.true;
     });
 
-    it('should have hours field', function () {
+    it('should have hours field', () => {
       const hours = DurationSchema.tree.hours;
       const instance = DurationSchema.paths.hours.instance;
 
@@ -57,7 +53,7 @@ module.exports = function (DurationSchema) {
       expect(hours.index).to.be.true;
     });
 
-    it('should have minutes field', function () {
+    it('should have minutes field', () => {
       const minutes = DurationSchema.tree.minutes;
       const instance = DurationSchema.paths.minutes.instance;
 
@@ -69,7 +65,7 @@ module.exports = function (DurationSchema) {
       expect(minutes.index).to.be.true;
     });
 
-    it('should have seconds field', function () {
+    it('should have seconds field', () => {
       const seconds = DurationSchema.tree.seconds;
       const instance = DurationSchema.paths.seconds.instance;
 
@@ -81,7 +77,7 @@ module.exports = function (DurationSchema) {
       expect(seconds.index).to.be.true;
     });
 
-    it('should have milliseconds field', function () {
+    it('should have milliseconds field', () => {
       const milliseconds = DurationSchema.tree.milliseconds;
       const instance = DurationSchema.paths.milliseconds.instance;
 
@@ -94,7 +90,7 @@ module.exports = function (DurationSchema) {
       expect(milliseconds.required).to.be.true;
     });
 
-    it('should have human field', function () {
+    it('should have human field', () => {
       const human = DurationSchema.tree.human;
       const instance = DurationSchema.paths.human.instance;
 

@@ -4,12 +4,22 @@
 const path = require('path');
 
 /* assertions */
-const assertMedia = require(path.join(__dirname, '..', 'assertions', 'media.assertions'));
+const assertMedia = require(path.join(
+  __dirname,
+  '..',
+  'assertions',
+  'media.assertions'
+));
 
-const MediaSchema = require(path.join(__dirname, '..', '..', 'lib', 'schemas', 'media.schema'));
+const MediaSchema = require(path.join(
+  __dirname,
+  '..',
+  '..',
+  'lib',
+  'schemas',
+  'media.schema'
+));
 
-describe('Media', function () {
-
+describe('Media', () => {
   assertMedia(MediaSchema);
-
 });

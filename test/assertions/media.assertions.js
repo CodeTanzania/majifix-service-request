@@ -3,11 +3,9 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function (MediaSchema) {
-
-  describe('Schema', function () {
-
-    it('should have uploadedAt field', function () {
+module.exports = function(MediaSchema) {
+  describe('Schema', () => {
+    it('should have uploadedAt field', () => {
       const uploadedAt = MediaSchema.tree.uploadedAt;
       const instance = MediaSchema.paths.uploadedAt.instance;
 
@@ -17,11 +15,9 @@ module.exports = function (MediaSchema) {
       expect(uploadedAt.type).to.be.a('function');
       expect(uploadedAt.type.name).to.be.equal('Date');
       expect(uploadedAt.index).to.be.true;
-
     });
 
-    it('should have name field', function () {
-
+    it('should have name field', () => {
       const name = MediaSchema.tree.name;
       const instance = MediaSchema.paths.name.instance;
 
@@ -34,8 +30,7 @@ module.exports = function (MediaSchema) {
       expect(name.required).to.be.true;
     });
 
-    it('should have caption field', function () {
-
+    it('should have caption field', () => {
       const caption = MediaSchema.tree.caption;
       const instance = MediaSchema.paths.caption.instance;
 
@@ -45,8 +40,7 @@ module.exports = function (MediaSchema) {
       expect(caption.type).to.be.a('function');
     });
 
-    it('should have content field', function () {
-
+    it('should have content field', () => {
       const content = MediaSchema.tree.content;
       const instance = MediaSchema.paths.content.instance;
 
@@ -56,8 +50,7 @@ module.exports = function (MediaSchema) {
       expect(content.type).to.be.a('function');
     });
 
-    it('should have mime field', function () {
-
+    it('should have mime field', () => {
       const mime = MediaSchema.tree.mime;
       const instance = MediaSchema.paths.mime.instance;
 
@@ -68,7 +61,7 @@ module.exports = function (MediaSchema) {
       expect(mime.default).to.equal('image/png');
     });
 
-    it('should have url field', function () {
+    it('should have url field', () => {
       const url = MediaSchema.tree.url;
       const instance = MediaSchema.paths.url.instance;
 
@@ -78,7 +71,7 @@ module.exports = function (MediaSchema) {
       expect(url.type).to.be.a('function');
     });
 
-    it('should have storage field', function () {
+    it('should have storage field', () => {
       const storage = MediaSchema.tree.storage;
       const instance = MediaSchema.paths.storage.instance;
 
@@ -89,4 +82,3 @@ module.exports = function (MediaSchema) {
     });
   });
 };
-
