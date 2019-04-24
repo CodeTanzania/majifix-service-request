@@ -28,15 +28,26 @@ describe('Service Request', () => {
 
     let serviceRequest;
 
-    before(done => create(jurisdiction, serviceGroup, status, priority, done));
+    before(done =>
+      clear(
+        ServiceRequest,
+        Service,
+        Priority,
+        Status,
+        ServiceGroup,
+        Jurisdiction,
+        done
+      )
+    );
+
+    before(done => {
+      create(jurisdiction, serviceGroup, status, priority, done);
+    });
 
     before(done => create(service, done));
 
-    before(done => {
-      clear('ServiceRequest', done);
-    });
 
-    before(done => {
+    it('should handle HTTP POST on /servicerequests', done => {
       serviceRequest = ServiceRequest.fake();
       serviceRequest.jurisdiction = jurisdiction;
       serviceRequest.group = serviceGroup;
@@ -44,11 +55,6 @@ describe('Service Request', () => {
       serviceRequest.priority = priority;
       serviceRequest.status = status;
 
-      create(serviceRequest, done);
-    });
-
-    it.skip('should handle HTTP POST on /servicerequests', done => {
-      // TODO resolve issue with autopopulation notification plugin line 143
       request(app)
         .post(`/${apiVersion}/servicerequests`)
         .set('Accept', 'application/json')
@@ -113,7 +119,8 @@ describe('Service Request', () => {
       const patch = serviceRequest.fakeOnly('code');
 
       request(app)
-        .patch(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
+        .patch(
+          `/${apiVersion}/servicerequests/${serviceRequest._id}`)
         .set('Accept', 'application/json')
         .set('Content-Type', 'application/json')
         .send(patch)
@@ -157,7 +164,8 @@ describe('Service Request', () => {
 
     it('should handle HTTP DELETE on /servicerequests/:id', done => {
       request(app)
-        .delete(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
+        .delete(
+          `/${apiVersion}/servicerequests/${serviceRequest._id}`)
         .set('Accept', 'application/json')
         .expect(200)
         .end((error, response) => {
@@ -177,12 +185,12 @@ describe('Service Request', () => {
 
   after(done =>
     clear(
-      'ServiceRequest',
-      'Status',
-      'Jurisdiction',
-      'Priority',
-      'Service',
-      'ServiceGroup',
+      ServiceRequest,
+      Service,
+      Priority,
+      Status,
+      ServiceGroup,
+      Jurisdiction,
       done
     )
   );
