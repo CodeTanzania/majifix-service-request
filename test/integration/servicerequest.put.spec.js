@@ -2,6 +2,7 @@
 
 /* dependencies */
 const path = require('path');
+const _ = require('lodash');
 const { expect } = require('chai');
 const { create, clear } = require('@lykmapipo/mongoose-test-helpers');
 const { Jurisdiction } = require('@codetanzania/majifix-jurisdiction');
@@ -13,14 +14,14 @@ const { ServiceRequest } = require(path.join(__dirname, '..', '..'));
 
 describe('ServiceRequest', () => {
   let jurisdiction = Jurisdiction.fake();
-  let serviceGroup = ServiceGroup.fake();
+  let group = ServiceGroup.fake();
   let status = Status.fake();
   let priority = Priority.fake();
 
   let service = Service.fake();
-  service.group = serviceGroup;
+  service.group = group;
 
-  before(done => create(jurisdiction, serviceGroup, status, priority, done));
+  before(done => create(jurisdiction, group, status, priority, done));
 
   before(done => create(service, done));
 
@@ -29,11 +30,13 @@ describe('ServiceRequest', () => {
 
     before(done => {
       serviceRequest = ServiceRequest.fake();
-      serviceRequest.jurisdiction = jurisdiction;
-      serviceRequest.group = serviceGroup;
-      serviceRequest.service = service;
-      serviceRequest.priority = priority;
-      serviceRequest.status = status;
+      serviceRequest.set({
+        jurisdiction,
+        group,
+        service,
+        priority,
+        status
+      });
 
       create(serviceRequest, done);
     });
@@ -66,13 +69,14 @@ describe('ServiceRequest', () => {
     it('should throw if not exists', done => {
       const fake = ServiceRequest.fake();
 
-      ServiceRequest.put(fake._id, fake, (error, updated) => {
-        expect(error).to.exist;
-        expect(error.status).to.exist;
-        expect(error.message).to.be.equal('Not Found');
-        expect(updated).to.not.exist;
-        done();
-      });
+      ServiceRequest
+        .put(fake._id, _.omit(fake, '_id'), (error, updated) => {
+          expect(error).to.exist;
+          // expect(error.status).to.exist;
+          expect(error.name).to.be.equal('DocumentNotFoundError');
+          expect(updated).to.not.exist;
+          done();
+        });
     });
   });
 
@@ -81,11 +85,13 @@ describe('ServiceRequest', () => {
 
     before(done => {
       serviceRequest = ServiceRequest.fake();
-      serviceRequest.jurisdiction = jurisdiction;
-      serviceRequest.group = serviceGroup;
-      serviceRequest.service = service;
-      serviceRequest.priority = priority;
-      serviceRequest.status = status;
+      serviceRequest.set({
+        jurisdiction,
+        group,
+        service,
+        priority,
+        status
+      });
 
       create(serviceRequest, done);
     });

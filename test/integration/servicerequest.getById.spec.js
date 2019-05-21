@@ -14,26 +14,28 @@ const { ServiceRequest } = require(path.join(__dirname, '..', '..'));
 
 describe('ServiceRequest', () => {
   let jurisdiction = Jurisdiction.fake();
-  let serviceGroup = ServiceGroup.fake();
+  let group = ServiceGroup.fake();
   let status = Status.fake();
   let priority = Priority.fake();
 
   let service = Service.fake();
-  service.group = serviceGroup;
+  service.group = group;
 
   let serviceRequest;
 
-  before(done => create(jurisdiction, serviceGroup, status, priority, done));
+  before(done => create(jurisdiction, group, status, priority, done));
 
   before(done => create(service, done));
 
   before(done => {
     serviceRequest = ServiceRequest.fake();
-    serviceRequest.jurisdiction = jurisdiction;
-    serviceRequest.group = serviceGroup;
-    serviceRequest.service = service;
-    serviceRequest.priority = priority;
-    serviceRequest.status = status;
+    serviceRequest.set({
+      jurisdiction,
+      group,
+      service,
+      priority,
+      status
+    });
 
     create(serviceRequest, done);
   });
@@ -85,8 +87,8 @@ describe('ServiceRequest', () => {
 
       ServiceRequest.getById(serviceRequest._id, (error, found) => {
         expect(error).to.exist;
-        expect(error.status).to.exist;
-        expect(error.message).to.be.equal('Not Found');
+        // expect(error.status).to.exist;
+        expect(error.name).to.be.equal('DocumentNotFoundError');
         expect(found).to.not.exist;
         done();
       });

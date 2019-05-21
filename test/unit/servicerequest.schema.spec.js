@@ -43,7 +43,7 @@ describe('ServiceRequest', () => {
       expect(jurisdiction.required).to.be.true;
 
       expect(jurisdiction.exists).to.exist;
-      expect(jurisdiction.exists).to.be.eql({ refresh: true });
+      expect(jurisdiction.exists).to.be.eql(true);
       expect(jurisdiction.index).to.be.true;
     });
 
@@ -59,7 +59,7 @@ describe('ServiceRequest', () => {
       expect(group.ref).to.be.equal('ServiceGroup');
       expect(group.required).to.be.true;
       expect(group.exists).to.exist;
-      expect(group.exists).to.be.eql({ refresh: true });
+      expect(group.exists).to.be.eql(true);
       expect(group.index).to.be.true;
     });
 
@@ -75,7 +75,7 @@ describe('ServiceRequest', () => {
       expect(service.ref).to.be.equal('Service');
       expect(service.required).to.be.true;
       expect(service.exists).to.exist;
-      expect(service.exists).to.be.eql({ refresh: true });
+      expect(service.exists).to.be.eql(true);
       expect(service.index).to.be.true;
     });
 
@@ -91,7 +91,7 @@ describe('ServiceRequest', () => {
       expect(priority.ref).to.be.equal('Priority');
       expect(priority.required).to.be.true;
       expect(priority.exists).to.exist;
-      expect(priority.exists).to.be.eql({ refresh: true });
+      expect(priority.exists).to.be.eql(true);
       expect(priority.index).to.be.true;
     });
 
@@ -107,7 +107,7 @@ describe('ServiceRequest', () => {
       expect(status.ref).to.be.equal('Status');
       expect(status.required).to.be.true;
       expect(status.exists).to.exist;
-      expect(status.exists).to.be.eql({ refresh: true });
+      expect(status.exists).to.be.eql(true);
       expect(status.index).to.be.true;
     });
 
@@ -182,7 +182,7 @@ describe('ServiceRequest', () => {
       expect(operator.type.name).to.be.equal('ObjectId');
       expect(operator.ref).to.be.equal('Party');
       expect(operator.exists).to.exist;
-      expect(operator.exists).to.be.eql({ refresh: true });
+      expect(operator.exists).to.be.eql(true);
       expect(operator.index).to.be.true;
     });
 
@@ -197,7 +197,7 @@ describe('ServiceRequest', () => {
       expect(assignee.type.name).to.be.equal('ObjectId');
       expect(assignee.ref).to.be.equal('Party');
       expect(assignee.exists).to.exist;
-      expect(assignee.exists).to.be.eql({ refresh: true });
+      expect(assignee.exists).to.be.eql(true);
       expect(assignee.index).to.be.true;
     });
 

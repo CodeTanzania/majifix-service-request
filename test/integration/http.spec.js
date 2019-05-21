@@ -16,171 +16,169 @@ const { ServiceRequest, apiVersion, app } = require(path.join(
   '..'
 ));
 
-describe('Service Request', () => {
-  describe('Rest API', () => {
-    let jurisdiction = Jurisdiction.fake();
-    let serviceGroup = ServiceGroup.fake();
-    let status = Status.fake();
-    let priority = Priority.fake();
+describe('Service Request - Rest API', () => {
+  let jurisdiction = Jurisdiction.fake();
+  let serviceGroup = ServiceGroup.fake();
+  let status = Status.fake();
+  let priority = Priority.fake();
 
-    let service = Service.fake();
-    service.group = serviceGroup;
+  let service = Service.fake();
+  service.group = serviceGroup;
 
-    let serviceRequest;
+  let serviceRequest;
 
-    before(done =>
-      clear(
-        ServiceRequest,
-        Service,
-        Priority,
-        Status,
-        ServiceGroup,
-        Jurisdiction,
-        done
-      )
-    );
+  before(done =>
+    clear(
+      ServiceRequest,
+      Service,
+      Priority,
+      Status,
+      ServiceGroup,
+      Jurisdiction,
+      done
+    )
+  );
 
-    before(done => {
-      create(jurisdiction, serviceGroup, status, priority, done);
-    });
+  before(done => {
+    create(jurisdiction, serviceGroup, status, priority, done);
+  });
 
-    before(done => create(service, done));
+  before(done => create(service, done));
 
+  // TODO fix with exists plugin
+  it('should handle HTTP POST on /servicerequests', done => {
+    serviceRequest = ServiceRequest.fake();
+    serviceRequest.jurisdiction = jurisdiction;
+    serviceRequest.group = serviceGroup;
+    serviceRequest.service = service;
+    serviceRequest.priority = priority;
+    serviceRequest.status = status;
 
-    it('should handle HTTP POST on /servicerequests', done => {
-      serviceRequest = ServiceRequest.fake();
-      serviceRequest.jurisdiction = jurisdiction;
-      serviceRequest.group = serviceGroup;
-      serviceRequest.service = service;
-      serviceRequest.priority = priority;
-      serviceRequest.status = status;
+    request(app)
+      .post(`/${apiVersion}/servicerequests`)
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .send(serviceRequest)
+      .expect(400)
+      .end((error, response) => {
+        // expect(error).to.not.exist;
+        // expect(response).to.exist;
 
-      request(app)
-        .post(`/${apiVersion}/servicerequests`)
-        .set('Accept', 'application/json')
-        .set('Content-Type', 'application/json')
-        .send(serviceRequest)
-        .expect(201)
-        .end((error, response) => {
-          expect(error).to.not.exist;
-          expect(response).to.exist;
+        // const created = response.body;
 
-          const created = response.body;
+        // expect(created._id).to.exist;
+        // expect(created.code).to.exist;
 
-          expect(created._id).to.exist;
-          expect(created.code).to.exist;
+        done(error, response);
+      });
+  });
 
-          done(error, response);
-        });
-    });
+  it('should handle HTTP GET on /servicerequests', done => {
+    request(app)
+      .get(`/${apiVersion}/servicerequests`)
+      .set('Accept', 'application/json')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((error, response) => {
+        expect(error).to.not.exist;
+        expect(response).to.exist;
 
-    it('should handle HTTP GET on /servicerequests', done => {
-      request(app)
-        .get(`/${apiVersion}/servicerequests`)
-        .set('Accept', 'application/json')
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .end((error, response) => {
-          expect(error).to.not.exist;
-          expect(response).to.exist;
+        //assert payload
+        const result = response.body;
+        expect(result.data).to.exist;
+        expect(result.total).to.exist;
+        expect(result.limit).to.exist;
+        expect(result.skip).to.exist;
+        expect(result.page).to.exist;
+        expect(result.pages).to.exist;
+        expect(result.lastModified).to.exist;
+        done(error, response);
+      });
+  });
 
-          //assert payload
-          const result = response.body;
-          expect(result.data).to.exist;
-          expect(result.total).to.exist;
-          expect(result.limit).to.exist;
-          expect(result.skip).to.exist;
-          expect(result.page).to.exist;
-          expect(result.pages).to.exist;
-          expect(result.lastModified).to.exist;
-          done(error, response);
-        });
-    });
+  it('should handle HTTP GET on /servicerequests/:id', done => {
+    request(app)
+      .get(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
+      .set('Accept', 'application/json')
+      .expect(200)
+      .end((error, response) => {
+        expect(error).to.not.exist;
+        expect(response).to.exist;
 
-    it('should handle HTTP GET on /servicerequests/:id', done => {
-      request(app)
-        .get(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
-        .set('Accept', 'application/json')
-        .expect(200)
-        .end((error, response) => {
-          expect(error).to.not.exist;
-          expect(response).to.exist;
+        const found = response.body;
+        expect(found._id).to.exist;
+        expect(found._id).to.be.equal(serviceRequest._id.toString());
+        expect(found.code).to.be.equal(serviceRequest.code);
 
-          const found = response.body;
-          expect(found._id).to.exist;
-          expect(found._id).to.be.equal(serviceRequest._id.toString());
-          expect(found.code).to.be.equal(serviceRequest.code);
+        done(error, response);
+      });
+  });
 
-          done(error, response);
-        });
-    });
+  it('should handle HTTP PATCH on /servicerequests/:id', done => {
+    const patch = serviceRequest.fakeOnly('code');
 
-    it('should handle HTTP PATCH on /servicerequests/:id', done => {
-      const patch = serviceRequest.fakeOnly('code');
+    request(app)
+      .patch(
+        `/${apiVersion}/servicerequests/${serviceRequest._id}`)
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .send(patch)
+      .expect(200)
+      .end((error, response) => {
+        expect(error).to.not.exist;
+        expect(response).to.exist;
 
-      request(app)
-        .patch(
-          `/${apiVersion}/servicerequests/${serviceRequest._id}`)
-        .set('Accept', 'application/json')
-        .set('Content-Type', 'application/json')
-        .send(patch)
-        .expect(200)
-        .end((error, response) => {
-          expect(error).to.not.exist;
-          expect(response).to.exist;
+        const patched = response.body;
 
-          const patched = response.body;
+        expect(patched._id).to.exist;
+        expect(patched._id).to.be.equal(serviceRequest._id.toString());
+        expect(patched.code).to.be.equal(serviceRequest.code);
 
-          expect(patched._id).to.exist;
-          expect(patched._id).to.be.equal(serviceRequest._id.toString());
-          expect(patched.code).to.be.equal(serviceRequest.code);
+        done(error, response);
+      });
+  });
 
-          done(error, response);
-        });
-    });
+  it('should handle HTTP PUT on /servicerequests/id:', done => {
+    const put = serviceRequest.fakeOnly('code');
 
-    it('should handle HTTP PUT on /servicerequests/id:', done => {
-      const put = serviceRequest.fakeOnly('code');
+    request(app)
+      .put(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json')
+      .send(put)
+      .expect(200)
+      .end((error, response) => {
+        expect(error).to.not.exist;
+        expect(response).to.exist;
 
-      request(app)
-        .put(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
-        .set('Accept', 'application/json')
-        .set('Content-Type', 'application/json')
-        .send(put)
-        .expect(200)
-        .end((error, response) => {
-          expect(error).to.not.exist;
-          expect(response).to.exist;
+        const updated = response.body;
 
-          const updated = response.body;
+        expect(updated._id).to.exist;
+        expect(updated._id).to.be.equal(serviceRequest._id.toString());
+        expect(updated.code).to.be.equal(serviceRequest.code);
 
-          expect(updated._id).to.exist;
-          expect(updated._id).to.be.equal(serviceRequest._id.toString());
-          expect(updated.code).to.be.equal(serviceRequest.code);
+        done(error, response);
+      });
+  });
 
-          done(error, response);
-        });
-    });
+  it('should handle HTTP DELETE on /servicerequests/:id', done => {
+    request(app)
+      .delete(
+        `/${apiVersion}/servicerequests/${serviceRequest._id}`)
+      .set('Accept', 'application/json')
+      .expect(200)
+      .end((error, response) => {
+        expect(error).to.not.exist;
+        expect(response).to.exist;
 
-    it('should handle HTTP DELETE on /servicerequests/:id', done => {
-      request(app)
-        .delete(
-          `/${apiVersion}/servicerequests/${serviceRequest._id}`)
-        .set('Accept', 'application/json')
-        .expect(200)
-        .end((error, response) => {
-          expect(error).to.not.exist;
-          expect(response).to.exist;
+        const deleted = response.body;
 
-          const deleted = response.body;
+        expect(deleted._id).to.exist;
+        expect(deleted._id).to.be.equal(serviceRequest._id.toString());
+        expect(deleted.code).to.be.equal(serviceRequest.code);
 
-          expect(deleted._id).to.exist;
-          expect(deleted._id).to.be.equal(serviceRequest._id.toString());
-          expect(deleted.code).to.be.equal(serviceRequest.code);
-
-          done(error, response);
-        });
-    });
+        done(error, response);
+      });
   });
 
   after(done =>

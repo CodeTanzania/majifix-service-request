@@ -14,27 +14,29 @@ const { ServiceRequest } = require(path.join(__dirname, '..', '..'));
 
 describe('ServiceRequest', () => {
   let jurisdiction = Jurisdiction.fake();
-  let serviceGroup = ServiceGroup.fake();
+  let group = ServiceGroup.fake();
   let status = Status.fake();
   let priority = Priority.fake();
 
   let service = Service.fake();
-  service.group = serviceGroup;
+  service.group = group;
 
   let serviceRequests;
 
-  before(done => create(jurisdiction, serviceGroup, status, priority, done));
+  before(done => create(jurisdiction, group, status, priority, done));
 
   before(done => create(service, done));
 
   before(done => {
     serviceRequests = ServiceRequest.fake(32);
     serviceRequests = _.map(serviceRequests, serviceRequest => {
-      serviceRequest.jurisdiction = jurisdiction;
-      serviceRequest.group = serviceGroup;
-      serviceRequest.service = service;
-      serviceRequest.priority = priority;
-      serviceRequest.status = status;
+      serviceRequest.set({
+        jurisdiction,
+        group,
+        service,
+        priority,
+        status
+      });
       return serviceRequest;
     });
     create(...serviceRequests, done);
@@ -59,9 +61,10 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.be.equal(4);
         expect(results.lastModified).to.exist;
 
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
-          results.lastModified
-        );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
+          .be.at.most(
+            results.lastModified
+          );
         done(error, results);
       });
     });
@@ -84,9 +87,10 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.exist;
         expect(results.pages).to.be.equal(2);
         expect(results.lastModified).to.exist;
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
-          results.lastModified
-        );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
+          .be.at.most(
+            results.lastModified
+          );
         done(error, results);
       });
     });
@@ -109,9 +113,10 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.exist;
         expect(results.pages).to.be.equal(1);
         expect(results.lastModified).to.exist;
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
-          results.lastModified
-        );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
+          .be.at.most(
+            results.lastModified
+          );
         done(error, results);
       });
     });
@@ -134,9 +139,10 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.exist;
         expect(results.pages).to.be.equal(1);
         expect(results.lastModified).to.exist;
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
-          results.lastModified
-        );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
+          .be.at.most(
+            results.lastModified
+          );
         done(error, results);
       });
     });
