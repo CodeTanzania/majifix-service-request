@@ -9,7 +9,8 @@
     "dev": "BASE_PATH=./examples nodemon ./examples/app.js",
     "commit": "git-cz",
     "commit:all": "git add -A && git-cz",
-    "changelog": "changelog"
+    "changelog": "changelog",
+    "format": "prettier --write \"{lib,test,.}/**/*.js\" --loglevel silent"
   },
   "repository": {
     "type": "git",
@@ -105,19 +106,11 @@
     }
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "lint-staged": {
-    "*.{js}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{md,html}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js}": ["prettier --write", "git add"],
+    "*.{md,html}": ["prettier --write", "git add"]
   },
   "husky": {
     "hooks": {

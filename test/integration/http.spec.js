@@ -46,7 +46,6 @@ describe('Service Request', () => {
 
     before(done => create(service, done));
 
-
     it('should handle HTTP POST on /servicerequests', done => {
       serviceRequest = ServiceRequest.fake();
       serviceRequest.jurisdiction = jurisdiction;
@@ -119,8 +118,7 @@ describe('Service Request', () => {
       const patch = serviceRequest.fakeOnly('code');
 
       request(app)
-        .patch(
-          `/${apiVersion}/servicerequests/${serviceRequest._id}`)
+        .patch(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
         .set('Accept', 'application/json')
         .set('Content-Type', 'application/json')
         .send(patch)
@@ -164,8 +162,7 @@ describe('Service Request', () => {
 
     it('should handle HTTP DELETE on /servicerequests/:id', done => {
       request(app)
-        .delete(
-          `/${apiVersion}/servicerequests/${serviceRequest._id}`)
+        .delete(`/${apiVersion}/servicerequests/${serviceRequest._id}`)
         .set('Accept', 'application/json')
         .expect(200)
         .end((error, response) => {
