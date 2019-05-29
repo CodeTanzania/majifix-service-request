@@ -51,8 +51,8 @@
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
     "@commitlint/travis-cli": "^7.6.1",
+    "@lykmapipo/express-test-helpers": "^0.7.2",
     "@lykmapipo/mongoose-test-helpers": "^0.7.4",
-    "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
@@ -68,10 +68,6 @@
     "mocha": "^6.1.4",
     "mongoose": "^5.5.3",
     "prettier": "^1.17.1",
-    "sinon": "^7.3.2",
-    "sinon-chai": "^3.3.0",
-    "sinon-mongoose": "^2.3.0",
-    "superagent": "^5.0.5",
     "supertest": "^4.0.2"
   },
   "peerDependencies": {
@@ -86,6 +82,7 @@
     "@codetanzania/majifix-status": ">=1.4.6",
     "@lykmapipo/env": ">=0.7.8",
     "@lykmapipo/express-common": ">=0.17.3",
+    "@lykmapipo/mongoose-common": ">=0.23.4",
     "@lykmapipo/postman": ">=0.8.0",
     "async": ">=3.0.1",
     "express": ">=4.17.1",
@@ -94,7 +91,6 @@
     "mongoose-geojson-schemas": ">=0.10.5",
     "mongoose-locale-schema": ">=0.3.1",
     "mongoose-rest-actions": ">=0.28.1",
-    "open311-api-sync": ">=0.2.2",
     "parse-ms": ">=2.1.0",
     "pretty-ms": ">=5.0.0",
     "randomcolor": ">=0.5.4"
