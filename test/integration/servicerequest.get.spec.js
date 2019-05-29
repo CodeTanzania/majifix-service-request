@@ -35,7 +35,7 @@ describe('ServiceRequest', () => {
         group,
         service,
         priority,
-        status
+        status,
       });
       return serviceRequest;
     });
@@ -61,10 +61,9 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.be.equal(4);
         expect(results.lastModified).to.exist;
 
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
-          .be.at.most(
-            results.lastModified
-          );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
+          results.lastModified
+        );
         done(error, results);
       });
     });
@@ -87,10 +86,9 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.exist;
         expect(results.pages).to.be.equal(2);
         expect(results.lastModified).to.exist;
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
-          .be.at.most(
-            results.lastModified
-          );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
+          results.lastModified
+        );
         done(error, results);
       });
     });
@@ -113,10 +111,9 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.exist;
         expect(results.pages).to.be.equal(1);
         expect(results.lastModified).to.exist;
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
-          .be.at.most(
-            results.lastModified
-          );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
+          results.lastModified
+        );
         done(error, results);
       });
     });
@@ -139,10 +136,9 @@ describe('ServiceRequest', () => {
         expect(results.pages).to.exist;
         expect(results.pages).to.be.equal(1);
         expect(results.lastModified).to.exist;
-        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to
-          .be.at.most(
-            results.lastModified
-          );
+        expect(_.maxBy(results.data, 'updatedAt').updatedAt).to.be.at.most(
+          results.lastModified
+        );
         done(error, results);
       });
     });

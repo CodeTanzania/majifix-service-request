@@ -34,7 +34,7 @@ describe('ServiceRequest', () => {
       group,
       service,
       priority,
-      status
+      status,
     });
 
     create(serviceRequest, done);

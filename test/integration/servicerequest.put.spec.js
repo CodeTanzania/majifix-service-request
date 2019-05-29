@@ -35,7 +35,7 @@ describe('ServiceRequest', () => {
         group,
         service,
         priority,
-        status
+        status,
       });
 
       create(serviceRequest, done);
@@ -69,14 +69,13 @@ describe('ServiceRequest', () => {
     it('should throw if not exists', done => {
       const fake = ServiceRequest.fake();
 
-      ServiceRequest
-        .put(fake._id, _.omit(fake, '_id'), (error, updated) => {
-          expect(error).to.exist;
-          // expect(error.status).to.exist;
-          expect(error.name).to.be.equal('DocumentNotFoundError');
-          expect(updated).to.not.exist;
-          done();
-        });
+      ServiceRequest.put(fake._id, _.omit(fake, '_id'), (error, updated) => {
+        expect(error).to.exist;
+        // expect(error.status).to.exist;
+        expect(error.name).to.be.equal('DocumentNotFoundError');
+        expect(updated).to.not.exist;
+        done();
+      });
     });
   });
 
@@ -90,7 +89,7 @@ describe('ServiceRequest', () => {
         group,
         service,
         priority,
-        status
+        status,
       });
 
       create(serviceRequest, done);

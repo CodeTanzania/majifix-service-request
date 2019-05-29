@@ -33,7 +33,7 @@ describe('ServiceRequest', () => {
         group,
         service,
         priority,
-        status
+        status,
       });
 
       ServiceRequest.post(serviceRequest, (error, created) => {
@@ -53,24 +53,18 @@ describe('ServiceRequest', () => {
 
         expect(created.group).to.exist;
         expect(created.group.code).to.eql(serviceRequest.group.code);
-        expect(created.group.name.en).to.eql(serviceRequest.group
-          .name.en);
+        expect(created.group.name.en).to.eql(serviceRequest.group.name.en);
 
         expect(created.service).to.exist;
-        expect(created.service.code).to.eql(serviceRequest.service
-          .code);
-        expect(created.service.name.en).to.eql(serviceRequest.service
-          .name.en);
+        expect(created.service.code).to.eql(serviceRequest.service.code);
+        expect(created.service.name.en).to.eql(serviceRequest.service.name.en);
 
         expect(created.status).to.exist;
-        expect(created.status.code).to.eql(serviceRequest.status
-          .code);
-        expect(created.status.name.en).to.eql(serviceRequest.status
-          .name.en);
+        expect(created.status.code).to.eql(serviceRequest.status.code);
+        expect(created.status.name.en).to.eql(serviceRequest.status.name.en);
 
         expect(created.priority).to.exist;
-        expect(created.priority.code).to.eql(serviceRequest.priority
-          .code);
+        expect(created.priority.code).to.eql(serviceRequest.priority.code);
         expect(created.priority.name.en).to.eql(
           serviceRequest.priority.name.en
         );
@@ -87,7 +81,7 @@ describe('ServiceRequest', () => {
         group,
         service,
         priority,
-        status
+        status,
       });
 
       serviceRequest.post((error, created) => {
@@ -107,24 +101,18 @@ describe('ServiceRequest', () => {
 
         expect(created.group).to.exist;
         expect(created.group.code).to.eql(serviceRequest.group.code);
-        expect(created.group.name.en).to.eql(serviceRequest.group
-          .name.en);
+        expect(created.group.name.en).to.eql(serviceRequest.group.name.en);
 
         expect(created.service).to.exist;
-        expect(created.service.code).to.eql(serviceRequest.service
-          .code);
-        expect(created.service.name.en).to.eql(serviceRequest.service
-          .name.en);
+        expect(created.service.code).to.eql(serviceRequest.service.code);
+        expect(created.service.name.en).to.eql(serviceRequest.service.name.en);
 
         expect(created.status).to.exist;
-        expect(created.status.code).to.eql(serviceRequest.status
-          .code);
-        expect(created.status.name.en).to.eql(serviceRequest.status
-          .name.en);
+        expect(created.status.code).to.eql(serviceRequest.status.code);
+        expect(created.status.name.en).to.eql(serviceRequest.status.name.en);
 
         expect(created.priority).to.exist;
-        expect(created.priority.code).to.eql(serviceRequest.priority
-          .code);
+        expect(created.priority.code).to.eql(serviceRequest.priority.code);
         expect(created.priority.name.en).to.eql(
           serviceRequest.priority.name.en
         );
