@@ -80,7 +80,7 @@
     "@codetanzania/majifix-service": ">=1.1.5",
     "@codetanzania/majifix-service-group": ">=1.2.6",
     "@codetanzania/majifix-status": ">=1.4.6",
-    "@lykmapipo/common": "^0.17.6",
+    "@lykmapipo/common": ">=0.18.0",
     "@lykmapipo/env": ">=0.7.8",
     "@lykmapipo/express-common": ">=0.17.3",
     "@lykmapipo/mongoose-common": ">=0.23.4",
@@ -93,8 +93,7 @@
     "mongoose-locale-schema": ">=0.3.1",
     "mongoose-rest-actions": ">=0.28.1",
     "parse-ms": ">=2.1.0",
-    "pretty-ms": ">=5.0.0",
-    "randomcolor": ">=0.5.4"
+    "pretty-ms": ">=5.0.0"
   },
   "config": {
     "commitizen": {
