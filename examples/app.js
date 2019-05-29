@@ -10,6 +10,7 @@ const _ = require('lodash');
 const async = require('async');
 const mongoose = require('mongoose');
 // mongoose.set('debug', true);
+const { get, start } = require('@lykmapipo/express-common');
 const { Jurisdiction } = require('@codetanzania/majifix-jurisdiction');
 const { Priority } = require('@codetanzania/majifix-priority');
 const { Status } = require('@codetanzania/majifix-status');
@@ -28,37 +29,37 @@ function boot() {
   async.waterfall(
     [
       function clearServiceRequests(next) {
-        ServiceRequest.remove(function(/*error, results*/) {
+        ServiceRequest.remove(function ( /*error, results*/ ) {
           next();
         });
       },
 
       function clearServices(next) {
-        Service.remove(function(/*error, results*/) {
+        Service.remove(function ( /*error, results*/ ) {
           next();
         });
       },
 
       function clearServiceGroups(next) {
-        ServiceGroup.remove(function(/*error, results*/) {
+        ServiceGroup.remove(function ( /*error, results*/ ) {
           next();
         });
       },
 
       function clearStatuses(next) {
-        Status.remove(function(/*error, results*/) {
+        Status.remove(function ( /*error, results*/ ) {
           next();
         });
       },
 
       function clearPriorities(next) {
-        Priority.remove(function(/*error, results*/) {
+        Priority.remove(function ( /*error, results*/ ) {
           next();
         });
       },
 
       function clearJurisdictions(next) {
-        Jurisdiction.remove(function(/*error, results*/) {
+        Jurisdiction.remove(function ( /*error, results*/ ) {
           next();
         });
       },
@@ -71,7 +72,7 @@ function boot() {
       function seedPriority(jurisdiction, next) {
         const priority = Priority.fake();
         priority.jurisdiction = jurisdiction;
-        priority.post(function(error, created) {
+        priority.post(function (error, created) {
           next(error, jurisdiction, created);
         });
       },
@@ -79,7 +80,7 @@ function boot() {
       function seedStatus(jurisdiction, priority, next) {
         const status = Status.fake();
         status.jurisdiction = jurisdiction;
-        status.post(function(error, created) {
+        status.post(function (error, created) {
           next(error, jurisdiction, priority, created);
         });
       },
@@ -87,7 +88,7 @@ function boot() {
       function seedServiceGroup(jurisdiction, priority, status, next) {
         const group = ServiceGroup.fake();
         group.jurisdiction = jurisdiction;
-        group.post(function(error, created) {
+        group.post(function (error, created) {
           next(error, jurisdiction, priority, status, created);
         });
       },
@@ -97,14 +98,14 @@ function boot() {
         service.jurisdiction = jurisdiction;
         service.group = group;
         service.priority = priority;
-        service.post(function(error, created) {
+        service.post(function (error, created) {
           next(error, jurisdiction, priority, status, group, created);
         });
       },
 
       function seed(jurisdiction, priority, status, group, service, next) {
         /* fake servicerequests */
-        samples = _.map(samples, function(sample) {
+        samples = _.map(samples, function (sample) {
           sample.jurisdiction = jurisdiction;
           sample.group = group;
           sample.service = service;
@@ -115,15 +116,15 @@ function boot() {
         ServiceRequest.create(samples, next);
       },
     ],
-    function(error, results) {
+    function (error, results) {
       /* expose module info */
-      app.get('/', function(request, response) {
+      get('/', function (request, response) {
         response.status(200);
         response.json(info);
       });
 
       /* fire the app */
-      app.start(function(error, env) {
+      start(function (error, env) {
         console.log(
           `visit http://0.0.0.0:${env.PORT}/${router.version}/servicerequests`
         );
