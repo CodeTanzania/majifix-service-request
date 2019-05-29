@@ -34,7 +34,7 @@ describe('Duration', () => {
         days: 1,
         hours: 1,
         minutes: 24,
-        seconds: 47
+        seconds: 47,
       });
       done(error, duration);
     });

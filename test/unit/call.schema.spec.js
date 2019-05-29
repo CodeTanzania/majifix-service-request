@@ -2,6 +2,7 @@
 
 /* dependencies */
 const path = require('path');
+const { expect, faker } = require('@lykmapipo/mongoose-test-helpers');
 
 /* assertions */
 const assertCall = require(path.join(
@@ -11,7 +12,7 @@ const assertCall = require(path.join(
   'call.assertions'
 ));
 
-const CallSchema = require(path.join(
+const { Call, callDurationOf } = require(path.join(
   __dirname,
   '..',
   '..',
@@ -21,5 +22,17 @@ const CallSchema = require(path.join(
 ));
 
 describe('Call', () => {
-  assertCall(CallSchema);
+  assertCall(Call);
+
+  it('should calculate duration with dates', () => {
+    const call = { startedAt: faker.date.past(), endedAt: faker.date.future() };
+    const duration = callDurationOf(call);
+    expect(duration).to.exist;
+    expect(duration).to.be.at.least(0);
+  });
+
+  it('should calculate duration with no dates', () => {
+    const duration = callDurationOf();
+    expect(duration).to.exist;
+  });
 });
