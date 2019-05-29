@@ -50,12 +50,11 @@
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
     "@commitlint/travis-cli": "^7.6.1",
-    "@lykmapipo/mongoose-test-helpers": "^0.7.3",
+    "@lykmapipo/mongoose-test-helpers": "^0.7.4",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
-    "faker": "git+https://github.com/Marak/faker.js.git",
     "generate-changelog": "^1.7.1",
     "grunt": "^1.0.4",
     "grunt-apidoc": "^0.11.0",
@@ -67,7 +66,6 @@
     "lint-staged": "^8.1.7",
     "mocha": "^6.1.4",
     "mongoose": "^5.5.3",
-    "nodemon": "^1.19.0",
     "prettier": "^1.17.1",
     "sinon": "^7.3.2",
     "sinon-chai": "^3.3.0",
@@ -76,7 +74,7 @@
     "supertest": "^4.0.2"
   },
   "peerDependencies": {
-    "mongoose": ">=5.5.10"
+    "mongoose": ">=5.5.11"
   },
   "dependencies": {
     "@codetanzania/majifix-common": ">=0.12.4",
@@ -85,11 +83,11 @@
     "@codetanzania/majifix-service": ">=1.1.5",
     "@codetanzania/majifix-service-group": ">=1.2.6",
     "@codetanzania/majifix-status": ">=1.4.6",
-    "@lykmapipo/env": ">=0.7.7",
+    "@lykmapipo/env": ">=0.7.8",
     "@lykmapipo/express-common": ">=0.17.3",
-    "@lykmapipo/postman": ">=0.5.5",
-    "async": ">=3.0.0",
-    "express": ">=4.17.0",
+    "@lykmapipo/postman": ">=0.8.0",
+    "async": ">=3.0.1",
+    "express": ">=4.17.1",
     "lodash": ">=4.17.11",
     "moment": ">=2.24.0",
     "mongoose-geojson-schemas": ">=0.10.5",

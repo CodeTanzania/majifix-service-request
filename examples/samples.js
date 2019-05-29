@@ -2,7 +2,7 @@
 
 /* depedencies */
 const _ = require('lodash');
-const faker = require('faker');
+const faker = require('@benmaruchu/faker');
 const { randomPoint } = require('mongoose-geojson-schemas');
 
 function sample() {
