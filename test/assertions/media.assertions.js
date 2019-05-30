@@ -3,7 +3,7 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function (Media) {
+module.exports = function(Media) {
   describe('Schema', () => {
     it('should have uploadedAt field', () => {
       const uploadedAt = Media.tree.uploadedAt;
