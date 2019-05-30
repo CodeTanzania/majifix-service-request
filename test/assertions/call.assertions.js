@@ -7,7 +7,7 @@ const { expect } = require('chai');
 /* declarations */
 const assertDuration = require(path.join(__dirname, 'duration.assertions'));
 
-module.exports = function (Call) {
+module.exports = function(Call) {
   describe('Schema', () => {
     it('should have startedAt field', () => {
       const startedAt = Call.tree.startedAt;

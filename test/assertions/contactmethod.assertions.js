@@ -3,7 +3,7 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function (ContactMethod) {
+module.exports = function(ContactMethod) {
   describe('Schema', () => {
     it('should have name field', () => {
       const name = ContactMethod.tree.name;

@@ -11,7 +11,7 @@ const assertReporter = require(path.join(
   'reporter.assertions'
 ));
 
-const ReporterSchema = require(path.join(
+const Reporter = require(path.join(
   __dirname,
   '..',
   '..',
@@ -21,5 +21,5 @@ const ReporterSchema = require(path.join(
 ));
 
 describe('Reporter', () => {
-  assertReporter(ReporterSchema);
+  assertReporter(Reporter);
 });

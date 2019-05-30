@@ -3,11 +3,11 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function(ReporterSchema) {
+module.exports = function(Reporter) {
   describe('Schema', () => {
     it('should have name field', () => {
-      const name = ReporterSchema.tree.name;
-      const instance = ReporterSchema.paths.name.instance;
+      const name = Reporter.tree.name;
+      const instance = Reporter.paths.name.instance;
 
       expect(instance).to.be.equal('String');
       expect(name).to.exist;
@@ -20,8 +20,8 @@ module.exports = function(ReporterSchema) {
     });
 
     it('should have phone field', () => {
-      const phone = ReporterSchema.tree.phone;
-      const instance = ReporterSchema.paths.phone.instance;
+      const phone = Reporter.tree.phone;
+      const instance = Reporter.paths.phone.instance;
 
       expect(instance).to.be.equal('String');
       expect(phone).to.exist;
@@ -35,8 +35,8 @@ module.exports = function(ReporterSchema) {
     });
 
     it('should have email field', () => {
-      const email = ReporterSchema.tree.email;
-      const instance = ReporterSchema.paths.email.instance;
+      const email = Reporter.tree.email;
+      const instance = Reporter.paths.email.instance;
 
       expect(instance).to.be.equal('String');
       expect(email).to.exist;
@@ -50,8 +50,8 @@ module.exports = function(ReporterSchema) {
     });
 
     it('should have account field', () => {
-      const account = ReporterSchema.tree.account;
-      const instance = ReporterSchema.paths.account.instance;
+      const account = Reporter.tree.account;
+      const instance = Reporter.paths.account.instance;
 
       expect(instance).to.be.equal('String');
       expect(account).to.exist;
