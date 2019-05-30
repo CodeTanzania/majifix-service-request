@@ -11,7 +11,7 @@ const assertMedia = require(path.join(
   'media.assertions'
 ));
 
-const MediaSchema = require(path.join(
+const Media = require(path.join(
   __dirname,
   '..',
   '..',
@@ -21,5 +21,5 @@ const MediaSchema = require(path.join(
 ));
 
 describe('Media', () => {
-  assertMedia(MediaSchema);
+  assertMedia(Media);
 });

@@ -3,11 +3,11 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function(MediaSchema) {
+module.exports = function (Media) {
   describe('Schema', () => {
     it('should have uploadedAt field', () => {
-      const uploadedAt = MediaSchema.tree.uploadedAt;
-      const instance = MediaSchema.paths.uploadedAt.instance;
+      const uploadedAt = Media.tree.uploadedAt;
+      const instance = Media.paths.uploadedAt.instance;
 
       expect(instance).to.be.equal('Date');
       expect(uploadedAt).to.exist;
@@ -18,8 +18,8 @@ module.exports = function(MediaSchema) {
     });
 
     it('should have name field', () => {
-      const name = MediaSchema.tree.name;
-      const instance = MediaSchema.paths.name.instance;
+      const name = Media.tree.name;
+      const instance = Media.paths.name.instance;
 
       expect(instance).to.be.equal('String');
       expect(name).to.exist;
@@ -31,8 +31,8 @@ module.exports = function(MediaSchema) {
     });
 
     it('should have caption field', () => {
-      const caption = MediaSchema.tree.caption;
-      const instance = MediaSchema.paths.caption.instance;
+      const caption = Media.tree.caption;
+      const instance = Media.paths.caption.instance;
 
       expect(instance).to.be.equal('String');
       expect(caption).to.exist;
@@ -41,8 +41,8 @@ module.exports = function(MediaSchema) {
     });
 
     it('should have content field', () => {
-      const content = MediaSchema.tree.content;
-      const instance = MediaSchema.paths.content.instance;
+      const content = Media.tree.content;
+      const instance = Media.paths.content.instance;
 
       expect(instance).to.be.equal('String');
       expect(content).to.exist;
@@ -51,8 +51,8 @@ module.exports = function(MediaSchema) {
     });
 
     it('should have mime field', () => {
-      const mime = MediaSchema.tree.mime;
-      const instance = MediaSchema.paths.mime.instance;
+      const mime = Media.tree.mime;
+      const instance = Media.paths.mime.instance;
 
       expect(instance).to.be.equal('String');
       expect(mime).to.exist;
@@ -62,8 +62,8 @@ module.exports = function(MediaSchema) {
     });
 
     it('should have url field', () => {
-      const url = MediaSchema.tree.url;
-      const instance = MediaSchema.paths.url.instance;
+      const url = Media.tree.url;
+      const instance = Media.paths.url.instance;
 
       expect(instance).to.be.equal('String');
       expect(url).to.exist;
@@ -72,8 +72,8 @@ module.exports = function(MediaSchema) {
     });
 
     it('should have storage field', () => {
-      const storage = MediaSchema.tree.storage;
-      const instance = MediaSchema.paths.storage.instance;
+      const storage = Media.tree.storage;
+      const instance = Media.paths.storage.instance;
 
       expect(instance).to.be.equal('String');
       expect(storage).to.exist;

@@ -3,7 +3,7 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function (Sla) {
+module.exports = function(Sla) {
   describe('Schema', () => {
     it('should have ttr field', () => {
       const ttr = Sla.tree.ttr;
