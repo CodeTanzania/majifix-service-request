@@ -11,7 +11,7 @@ const assertSla = require(path.join(
   'sla.assertions'
 ));
 
-const SlaSchema = require(path.join(
+const Sla = require(path.join(
   __dirname,
   '..',
   '..',
@@ -21,5 +21,5 @@ const SlaSchema = require(path.join(
 ));
 
 describe('Sla', () => {
-  assertSla(SlaSchema);
+  assertSla(Sla);
 });

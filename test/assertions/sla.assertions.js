@@ -3,11 +3,11 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function(SlaSchema) {
+module.exports = function (Sla) {
   describe('Schema', () => {
     it('should have ttr field', () => {
-      const ttr = SlaSchema.tree.ttr;
-      const instance = SlaSchema.paths.ttr.instance;
+      const ttr = Sla.tree.ttr;
+      const instance = Sla.paths.ttr.instance;
 
       expect(instance).to.be.equal('Number');
       expect(ttr).to.exist;
