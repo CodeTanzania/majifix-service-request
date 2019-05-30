@@ -3,11 +3,11 @@
 /* dependencies */
 const { expect } = require('chai');
 
-module.exports = function(ContactMethodSchema) {
+module.exports = function (ContactMethod) {
   describe('Schema', () => {
     it('should have name field', () => {
-      const name = ContactMethodSchema.tree.name;
-      const instance = ContactMethodSchema.paths.name.instance;
+      const name = ContactMethod.tree.name;
+      const instance = ContactMethod.paths.name.instance;
 
       expect(instance).to.be.equal('String');
       expect(name).to.exist;
@@ -19,8 +19,8 @@ module.exports = function(ContactMethodSchema) {
     });
 
     it('should have workspace field', () => {
-      const workspace = ContactMethodSchema.tree.workspace;
-      const instance = ContactMethodSchema.paths.workspace.instance;
+      const workspace = ContactMethod.tree.workspace;
+      const instance = ContactMethod.paths.workspace.instance;
 
       expect(instance).to.be.equal('String');
       expect(workspace).to.exist;
@@ -32,21 +32,23 @@ module.exports = function(ContactMethodSchema) {
     });
 
     it('should expose contact methods types as statics', () => {
-      expect(ContactMethodSchema.statics.PHONE_CALL).to.exist;
-      expect(ContactMethodSchema.statics.PHONE_CALL).to.equal('Call');
-      expect(ContactMethodSchema.statics.EMAIL).to.exist;
-      expect(ContactMethodSchema.statics.EMAIL).to.equal('Email');
-      expect(ContactMethodSchema.statics.SMS).to.exist;
-      expect(ContactMethodSchema.statics.SMS).to.equal('SMS');
-      expect(ContactMethodSchema.statics.USSD).to.exist;
-      expect(ContactMethodSchema.statics.USSD).to.equal('USSD');
-      expect(ContactMethodSchema.statics.LETTER).to.exist;
-      expect(ContactMethodSchema.statics.LETTER).to.equal('Letter');
-      expect(ContactMethodSchema.statics.FAX).to.exist;
-      expect(ContactMethodSchema.statics.FAX).to.equal('Fax');
-      expect(ContactMethodSchema.statics.MOBILE_APP).to.exist;
-      expect(ContactMethodSchema.statics.MOBILE_APP).to.equal('MOBILE_APP');
-      expect(ContactMethodSchema.statics.METHODS).to.be.an('array');
+      expect(ContactMethod.statics.PHONE_CALL).to.exist;
+      expect(ContactMethod.statics.PHONE_CALL).to.equal('Call');
+      expect(ContactMethod.statics.EMAIL).to.exist;
+      expect(ContactMethod.statics.EMAIL).to.equal('Email');
+      expect(ContactMethod.statics.SMS).to.exist;
+      expect(ContactMethod.statics.SMS).to.equal('SMS');
+      expect(ContactMethod.statics.USSD).to.exist;
+      expect(ContactMethod.statics.USSD).to.equal('USSD');
+      expect(ContactMethod.statics.LETTER).to.exist;
+      expect(ContactMethod.statics.LETTER).to.equal('Letter');
+      expect(ContactMethod.statics.FAX).to.exist;
+      expect(ContactMethod.statics.FAX).to.equal('Fax');
+      expect(ContactMethod.statics.MOBILE_APP).to.exist;
+      expect(ContactMethod.statics.MOBILE_APP).to.equal('Mobile');
+      expect(ContactMethod.statics.WEBSITE).to.exist;
+      expect(ContactMethod.statics.WEBSITE).to.equal('Website');
+      expect(ContactMethod.statics.METHODS).to.be.an('array');
     });
   });
 };

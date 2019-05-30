@@ -7,11 +7,11 @@ const { expect } = require('chai');
 /* declarations */
 const assertDuration = require(path.join(__dirname, 'duration.assertions'));
 
-module.exports = function(CallSchema) {
+module.exports = function (Call) {
   describe('Schema', () => {
     it('should have startedAt field', () => {
-      const startedAt = CallSchema.tree.startedAt;
-      const instance = CallSchema.paths.startedAt.instance;
+      const startedAt = Call.tree.startedAt;
+      const instance = Call.paths.startedAt.instance;
 
       expect(instance).to.be.equal('Date');
       expect(startedAt).to.exist;
@@ -22,8 +22,8 @@ module.exports = function(CallSchema) {
     });
 
     it('should have endedAt field', () => {
-      const endedAt = CallSchema.tree.endedAt;
-      const instance = CallSchema.paths.endedAt.instance;
+      const endedAt = Call.tree.endedAt;
+      const instance = Call.paths.endedAt.instance;
 
       expect(instance).to.be.equal('Date');
       expect(endedAt).to.exist;
@@ -34,7 +34,7 @@ module.exports = function(CallSchema) {
     });
 
     describe('duration', () => {
-      assertDuration(CallSchema.paths.duration.schema);
+      assertDuration(Call.paths.duration.schema);
     });
   });
 };

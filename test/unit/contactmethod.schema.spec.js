@@ -11,7 +11,7 @@ const assertContactMethod = require(path.join(
   'contactmethod.assertions'
 ));
 
-const ContactMethodSchema = require(path.join(
+const ContactMethod = require(path.join(
   __dirname,
   '..',
   '..',
@@ -21,5 +21,5 @@ const ContactMethodSchema = require(path.join(
 ));
 
 describe('ContactMethod', () => {
-  assertContactMethod(ContactMethodSchema);
+  assertContactMethod(ContactMethod);
 });
